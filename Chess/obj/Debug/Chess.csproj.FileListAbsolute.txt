@@ -1,0 +1,17 @@
+C:\Projects\C#\Chess\Chess\bin\Debug\Chess.exe.config
+C:\Projects\C#\Chess\Chess\bin\Debug\Chess.exe
+C:\Projects\C#\Chess\Chess\bin\Debug\Chess.pdb
+C:\Projects\C#\Chess\Chess\obj\Debug\Chess.csprojAssemblyReference.cache
+C:\Projects\C#\Chess\Chess\obj\Debug\App.g.cs
+C:\Projects\C#\Chess\Chess\obj\Debug\Chess_MarkupCompile.cache
+C:\Projects\C#\Chess\Chess\obj\Debug\Chess_MarkupCompile.lref
+C:\Projects\C#\Chess\Chess\obj\Debug\Chess.g.resources
+C:\Projects\C#\Chess\Chess\obj\Debug\Chess.Properties.Resources.resources
+C:\Projects\C#\Chess\Chess\obj\Debug\Chess.csproj.GenerateResource.cache
+C:\Projects\C#\Chess\Chess\obj\Debug\Chess.csproj.CoreCompileInputs.cache
+C:\Projects\C#\Chess\Chess\obj\Debug\Chess.exe
+C:\Projects\C#\Chess\Chess\obj\Debug\Chess.pdb
+C:\Projects\C#\Chess\Chess\obj\Debug\Views\MainWindow.g.cs
+C:\Projects\C#\Chess\Chess\obj\Debug\Views\MainWindow.baml
+C:\Projects\C#\Chess\Chess\obj\Debug\App.baml
+C:\Projects\C#\Chess\Chess\obj\Debug\Styles\Colors.baml
