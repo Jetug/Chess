@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Projects\C#\Chess\Chess\App.xaml
-2-1027222983
+5-619135055
 
-9-1704270125
-13-1505183044
-Styles\Colors.xaml;Views\MainWindow.xaml;
+151054581741
+182054832293
+Styles\Backgrounds.xaml;Styles\Colors.xaml;Views\Field.xaml;Views\GridField.xaml;Views\MainWindow.xaml;
 
 True
 

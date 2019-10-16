@@ -1,11 +1,16 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:Chess.App.Styles">
+                    xmlns:local="clr-namespace:Chess.Styles">
    
     <Color x:Key="WhiteCellColor">#FFD8DCB8</Color>
     <SolidColorBrush x:Key="WhiteCellBrush" Color="{StaticResource WhiteCellColor}"/>
 
     <Color x:Key="BlackCellColor">#FF4C2312</Color>
     <SolidColorBrush x:Key="BlackCellBrush" Color="{StaticResource BlackCellColor}"/>
+
+    <Color x:Key="White">#FF000000</Color>
+    <SolidColorBrush x:Key="test" Color="{StaticResource White}"/>
+
+    <Image x:Key="Wood" Source="C:\Projects\C#\Chess\Source\Wood.jpg"></Image>
     
 </ResourceDictionary>

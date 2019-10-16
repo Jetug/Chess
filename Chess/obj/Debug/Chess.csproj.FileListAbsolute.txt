@@ -15,3 +15,14 @@ C:\Projects\C#\Chess\Chess\obj\Debug\Views\MainWindow.g.cs
 C:\Projects\C#\Chess\Chess\obj\Debug\Views\MainWindow.baml
 C:\Projects\C#\Chess\Chess\obj\Debug\App.baml
 C:\Projects\C#\Chess\Chess\obj\Debug\Styles\Colors.baml
+C:\Projects\C#\Chess\Chess\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Projects\C#\Chess\Chess\bin\Debug\Microsoft.Expression.Interactions.dll
+C:\Projects\C#\Chess\Chess\bin\Debug\System.Windows.Interactivity.dll
+C:\Projects\C#\Chess\Chess\bin\Debug\Microsoft.Expression.Interactions.xml
+C:\Projects\C#\Chess\Chess\bin\Debug\System.Windows.Interactivity.xml
+C:\Projects\C#\Chess\Chess\obj\Debug\Chess.csproj.CopyComplete
+C:\Projects\C#\Chess\Chess\obj\Debug\Views\Field.g.cs
+C:\Projects\C#\Chess\Chess\obj\Debug\Views\Field.baml
+C:\Projects\C#\Chess\Chess\obj\Debug\Views\GridField.g.cs
+C:\Projects\C#\Chess\Chess\obj\Debug\Views\GridField.baml
+C:\Projects\C#\Chess\Chess\obj\Debug\Styles\Backgrounds.baml
