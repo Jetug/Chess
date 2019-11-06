@@ -24,6 +24,5 @@ namespace Chess.Views
         {
             InitializeComponent();
         }
-
     }
 }

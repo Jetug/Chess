@@ -1,0 +1,109 @@
+﻿<Window x:Class="Chess.Views.PawnTransformationDialogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:vm="clr-namespace:Chess.ViewModels"
+        xmlns:local="clr-namespace:Chess.Views"
+        
+        mc:Ignorable="d"
+        Title="Выберите фигуру" 
+        Height="300" Width="300"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle = "None" ResizeMode="NoResize"
+        ShowInTaskbar="False">
+    <Window.DataContext>
+        <vm:DialogWindowViewModel/>
+    </Window.DataContext>
+
+    <Grid Name = "mainGrid" Background="{DynamicResource WhiteCellBrush}">
+        <Border BorderBrush="Black" BorderThickness="5"/>
+
+        <Grid Name="figureGrid"
+                  HorizontalAlignment="Left" 
+                  Margin="50,50,0,0"
+                  VerticalAlignment="Top"
+                  Width="200" Height="200">
+
+            <Label Name="queenLabel"
+                    Content="♛" 
+                    FontSize="45"
+                    Height="70" Width="70" 
+                    Background="{x:Null}" 
+                    HorizontalContentAlignment="Center" 
+                    VerticalContentAlignment="Center" 
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseDown">
+                        <i:InvokeCommandAction 
+                                Command="{Binding CloseWindow}"
+                                CommandParameter="{Binding ElementName=queenLabel}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+
+            </Label>
+            <Label  Name="rookLabel"
+                    Content="♜" 
+                    Margin="130,0,0,0" 
+                    FontSize="45"
+                    Height="70" Width="70" 
+                    Background="{x:Null}" 
+                    HorizontalContentAlignment="Center" 
+                    VerticalContentAlignment="Center" 
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseDown">
+                        <i:InvokeCommandAction 
+                            Command="{Binding CloseWindow}"
+                            CommandParameter="{Binding ElementName=rookLabel}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Label>
+            <Label  Name="knightLabel"
+                    Content="♞" 
+                    Margin="0,130,0,0" 
+                    FontSize="45"
+                    Height="70" Width="70" 
+                    Background="{x:Null}" 
+                    HorizontalContentAlignment="Center" 
+                    VerticalContentAlignment="Center" 
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseDown">
+                        <i:InvokeCommandAction 
+                            Command="{Binding CloseWindow}"
+                            CommandParameter="{Binding ElementName=knightLabel}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Label>
+            <Label  Name="bishopLabel"
+                    Content="♝" 
+                    Margin="130,130,0,0" 
+                    FontSize="45"
+                    Height="70" Width="70" 
+                    Background="{x:Null}" 
+                    HorizontalContentAlignment="Center" 
+                    VerticalContentAlignment="Center" 
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseDown">
+                        <i:InvokeCommandAction 
+                            Command="{Binding CloseWindow}"
+                            CommandParameter="{Binding ElementName=bishopLabel}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Label>
+        </Grid>
+        <Label Content="Выберите фигуру"
+                   HorizontalAlignment="Left" 
+                   Margin="50,10,0,0"
+                   VerticalAlignment="Top" 
+                   Width="200" FontSize="16"
+                   HorizontalContentAlignment="Center"/>
+    </Grid>
+</Window>

@@ -1,6 +1,7 @@
 ﻿using System.Windows.Input;
 using System.Windows;
-
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace Chess
 {
@@ -12,7 +13,6 @@ namespace Chess
         public MainWindow()
         {
             InitializeComponent();
-            
         }
     }    
 }

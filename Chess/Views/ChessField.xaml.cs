@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Chess.Views
 {
     /// <summary>
-    /// Логика взаимодействия для Field.xaml
+    /// Логика взаимодействия для ChessField.xaml
     /// </summary>
-    public partial class Field : UserControl
+    public partial class ChessField : UserControl
     {
-        public Field()
+        public ChessField()
         {
             InitializeComponent();
         }

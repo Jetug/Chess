@@ -1,81 +1,96 @@
 ﻿<Window
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Chess"
-        xmlns:vm="clr-namespace:Chess.ViewModels"
-        xmlns:Views="clr-namespace:Chess.Views" 
-        x:Class="Chess.MainWindow"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:Chess"
+    xmlns:vm="clr-namespace:Chess.ViewModels"
+    xmlns:i1="http://www.galasoft.ch/mvvmlight"
+    x:Class="Chess.MainWindow"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="660" Width="760.001" 
-    
-        >
+        Title="Chess" Height="650" Width="750" 
+        MinWidth="750" MinHeight="650"
+        Background="#FF2B2B2B" >
     <Window.DataContext>
         <vm:MainViewModel/>
     </Window.DataContext>
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="KeyDown">
-            <i:InvokeCommandAction 
-                Command="{Binding EscapeDown}"/>
+            <i1:EventToCommand  
+                Command="{Binding EscapeDown}" 
+                PassEventArgsToCommand="True" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    <Grid>
+
+    <Grid Name="mainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0*"/>
-            <ColumnDefinition Width="10*"/>
-            <ColumnDefinition Width="67*"/>
+            <ColumnDefinition Width="115*"/>
+            <ColumnDefinition Width="635*"/>
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
 
         <Button 
             x:Name="StartButton"
-            Content="Начать игру" 
+            Content="Новая игра" 
             HorizontalAlignment="Left" 
-            Margin="5,260,0,0" 
+            Margin="18,262,0,0" 
+            CommandParameter=""
             VerticalAlignment="Top" 
             Width="79" Height="61" 
-            Background="#FF747474" Grid.ColumnSpan="2"
-            Command="{Binding Start}"
-            >
-            <Button.Effect>
+            Background="#FF3232A6" Grid.ColumnSpan="2"
+            Command="{Binding Start}" FontWeight="Bold" 
+            Foreground="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
+            BorderBrush="Black">
+            <!--<Button.Effect>
                 <DropShadowEffect 
                     Color="Black" Direction="310"
                     ShadowDepth="8" Opacity="0.4"/>
-            </Button.Effect>
+            </Button.Effect>-->
         </Button>
-
         <ContentPresenter
             Content="{Binding Content}"
             Name="MainContent"
-            Width="560" Height="560" 
-            Margin="10,10,33.333,50.667"
-            Grid.Column="2" OpacityMask="#FFCDCDCD"/>
-        <Label 
-            Grid.ColumnSpan="2" 
-            Content="♟" 
-            HorizontalAlignment="Left" 
-            Margin="10,120,0,0" 
-            VerticalAlignment="Top" 
-            Height="70" Width="70"
-            HorizontalContentAlignment="Center" 
-            VerticalContentAlignment="Center" 
-            FontSize="36" 
-            FontFamily="Lucida Bright"
-            Foreground="{DynamicResource WhiteCellBrush}">
-            <Label.Effect>
-                <DropShadowEffect>
-
-                </DropShadowEffect>
-            </Label.Effect>
-        </Label>
+            Width="600" Height="600" 
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="10.333,0,0,0"
+            Grid.Column="2" 
+            OpacityMask="#FFCDCDCD"/>
         <DataGrid Grid.ColumnSpan="2" 
                   HorizontalAlignment="Left" 
-                  Height="260" Width="78"
+                  Height="255" Width="108"
                   VerticalAlignment="Top"
                   ItemsSource="{Binding Test}" Margin="6,0,0,0">
-            <DataGrid.Columns/>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Фигура" Binding="{Binding Path=Icon}" Width="30" />
+                <DataGridTextColumn Header="X" Binding="{Binding Path=Cell.PosX}" Width="20" />
+                <DataGridTextColumn Header="Y" Binding="{Binding Path=Cell.PosY}" Width="20" />
+            </DataGrid.Columns>
+
         </DataGrid>
+        <CheckBox 
+            Name="flip_ComboBox"
+            Grid.ColumnSpan="2" 
+            Content="Перевернуть &#xD;&#xA;чёрные фигуры" 
+            HorizontalAlignment="Left" 
+            Margin="0,347,0,0" 
+            VerticalAlignment="Top" 
+            Width="105"
+            Foreground="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}" Height="30"/>
+        <Button
+            Name="flipButton"
+            Grid.ColumnSpan="2" 
+            Content="Перевернуть &#xD;&#xA;чёрные фигуры"
+            HorizontalAlignment="Left"
+            Margin="5,382,0,0" 
+            VerticalAlignment="Top"
+            Width="100" Height="42"/>
     </Grid>
 </Window>

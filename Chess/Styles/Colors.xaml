@@ -8,9 +8,7 @@
     <Color x:Key="BlackCellColor">#FF4C2312</Color>
     <SolidColorBrush x:Key="BlackCellBrush" Color="{StaticResource BlackCellColor}"/>
 
-    <Color x:Key="White">#FF000000</Color>
-    <SolidColorBrush x:Key="test" Color="{StaticResource White}"/>
-
-    <Image x:Key="Wood" Source="C:\Projects\C#\Chess\Source\Wood.jpg"></Image>
+    <Color x:Key="FieldBorder">#FF000000</Color>
+    <SolidColorBrush x:Key="FieldBorderBrush" Color="{StaticResource FieldBorder}"/>
     
 </ResourceDictionary>

@@ -5,284 +5,695 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Chess.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="560" d:DesignWidth="560">
-    <Grid Name = "mainGrid">
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}"
-            Stroke="Black" 
-            Margin="0,0,490,490"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-            Margin="70,0,420,490"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}" 
-            Stroke="Black" 
-        Margin="140,0,350,490"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-        Margin="210,0,280,490"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}"
-            Stroke="Black" 
-        Margin="280,0,210,490"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-        Margin="350,0,140,490"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}"
-            Stroke="Black" 
-        Margin="420,0,70,490"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-        Margin="490,0,0,490"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}"
-            Stroke="Black" 
-        Margin="420,0,70,490"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-            Margin="0,70,490,420"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}" 
-            Stroke="Black" 
-            Margin="70,70,420,420"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-            Margin="140,70,350,420"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}" 
-            Stroke="Black" 
-            Margin="210,70,280,420"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-            Margin="280,70,210,420"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}" 
-            Stroke="Black" 
-            Margin="350,70,140,420"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-            Margin="420,70,70,420"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}" 
-            Stroke="Black" 
-            Margin="490,70,0,420"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}" 
-            Stroke="Black" 
-            Margin="0,140,490,350"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-            Margin="70,140,420,350"
-                />
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}" 
-            Stroke="Black" 
-            Margin="140,140,350,350"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-            Margin="210,140,280,350"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}"
-            Stroke="Black" 
-            Margin="280,140,210,350"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-            Margin="350,140,140,350"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}"
-            Stroke="Black" 
-            Margin="420,140,70,350"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-            Margin="490,140,0,350"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}"
-            Stroke="Black" 
-            Margin="420,140,70,350"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-            Margin="0,210,490,280"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}" 
-            Stroke="Black" 
-            Margin="70,210,420,280"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-            Margin="140,210,350,280"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}" 
-            Stroke="Black" 
-            Margin="210,210,280,280"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-            Margin="280,210,210,280"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}" 
-            Stroke="Black" 
-            Margin="350,210,140,280"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-            Margin="420,210,70,280"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}" 
-            Stroke="Black" 
-            Margin="490,210,0,280"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}" 
-            Stroke="Black" 
-            Margin="0,280,490,210"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-            Margin="70,280,420,210"
-                />
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}" 
-            Stroke="Black" 
-            Margin="140,280,350,210"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-            Margin="210,280,280,210"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}"
-            Stroke="Black" 
-            Margin="280,280,210,210"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-            Margin="350,280,140,210"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}"
-            Stroke="Black" 
-            Margin="420,280,70,210"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-            Margin="490,280,0,210"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}"
-            Stroke="Black" 
-            Margin="420,280,70,210"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-            Margin="0,350,490,140"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}" 
-            Stroke="Black" 
-            Margin="70,350,420,140"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-            Margin="140,350,350,140"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}" 
-            Stroke="Black" 
-            Margin="210,350,280,140"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-            Margin="280,350,210,140"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}" 
-            Stroke="Black" 
-            Margin="350,350,140,140"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-            Margin="420,350,70,140"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}" 
-            Stroke="Black" 
-            Margin="490,350,0,140"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}" 
-            Stroke="Black" 
-            Margin="0,420,490,70"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-            Margin="70,420,420,70"
-                />
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}" 
-            Stroke="Black" 
-            Margin="140,420,350,70"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-            Margin="210,420,280,70"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}"
-            Stroke="Black" 
-            Margin="280,420,210,70"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-            Margin="350,420,140,70"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}"
-            Stroke="Black" 
-            Margin="420,420,70,70"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-            Margin="490,420,0,70"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}"
-            Stroke="Black" 
-            Margin="420,420,70,70"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-            Margin="0,490,490,0"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}" 
-            Stroke="Black" 
-            Margin="70,490,420,0"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-            Margin="140,490,350,0"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}" 
-            Stroke="Black" 
-            Margin="210,490,280,0"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-            Margin="280,490,210,0"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}" 
-            Stroke="Black" 
-            Margin="350,490,140,0"/>
-        <Rectangle 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Stroke="Black" 
-            Margin="420,490,70,0"/>
-        <Rectangle 
-            Fill="{DynamicResource WhiteCellBrush}" 
-            Stroke="Black" 
-            Margin="490,490,0,0"/>
+             d:DesignHeight="600" d:DesignWidth="600">
+    <Grid>
 
+        <Grid Name = "mainGrid" Height="560" Width="560" >
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}"
+                Stroke="Black" 
+                Margin="0,0,490,490"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+                Margin="70,0,420,490"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}" 
+                Stroke="Black" 
+            Margin="140,0,350,490"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+            Margin="210,0,280,490"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}"
+                Stroke="Black" 
+            Margin="280,0,210,490"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+            Margin="350,0,140,490"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}"
+                Stroke="Black" 
+            Margin="420,0,70,490"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+            Margin="490,0,0,490"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}"
+                Stroke="Black" 
+            Margin="420,0,70,490"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+                Margin="0,70,490,420"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}" 
+                Stroke="Black" 
+                Margin="70,70,420,420"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+                Margin="140,70,350,420"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}" 
+                Stroke="Black" 
+                Margin="210,70,280,420"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+                Margin="280,70,210,420"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}" 
+                Stroke="Black" 
+                Margin="350,70,140,420"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+                Margin="420,70,70,420"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}" 
+                Stroke="Black" 
+                Margin="490,70,0,420"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}" 
+                Stroke="Black" 
+                Margin="0,140,490,350"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+                Margin="70,140,420,350"
+                    />
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}" 
+                Stroke="Black" 
+                Margin="140,140,350,350"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+                Margin="210,140,280,350"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}"
+                Stroke="Black" 
+                Margin="280,140,210,350"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+                Margin="350,140,140,350"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}"
+                Stroke="Black" 
+                Margin="420,140,70,350"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+                Margin="490,140,0,350"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}"
+                Stroke="Black" 
+                Margin="420,140,70,350"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+                Margin="0,210,490,280"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}" 
+                Stroke="Black" 
+                Margin="70,210,420,280"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+                Margin="140,210,350,280"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}" 
+                Stroke="Black" 
+                Margin="210,210,280,280"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+                Margin="280,210,210,280"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}" 
+                Stroke="Black" 
+                Margin="350,210,140,280"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+                Margin="420,210,70,280"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}" 
+                Stroke="Black" 
+                Margin="490,210,0,280"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}" 
+                Stroke="Black" 
+                Margin="0,280,490,210"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+                Margin="70,280,420,210"
+                    />
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}" 
+                Stroke="Black" 
+                Margin="140,280,350,210"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+                Margin="210,280,280,210"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}"
+                Stroke="Black" 
+                Margin="280,280,210,210"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+                Margin="350,280,140,210"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}"
+                Stroke="Black" 
+                Margin="420,280,70,210"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+                Margin="490,280,0,210"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}"
+                Stroke="Black" 
+                Margin="420,280,70,210"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+                Margin="0,350,490,140"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}" 
+                Stroke="Black" 
+                Margin="70,350,420,140"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+                Margin="140,350,350,140"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}" 
+                Stroke="Black" 
+                Margin="210,350,280,140"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+                Margin="280,350,210,140"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}" 
+                Stroke="Black" 
+                Margin="350,350,140,140"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+                Margin="420,350,70,140"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}" 
+                Stroke="Black" 
+                Margin="490,350,0,140"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}" 
+                Stroke="Black" 
+                Margin="0,420,490,70"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+                Margin="70,420,420,70"
+                    />
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}" 
+                Stroke="Black" 
+                Margin="140,420,350,70"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+                Margin="210,420,280,70"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}"
+                Stroke="Black" 
+                Margin="280,420,210,70"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+                Margin="350,420,140,70"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}"
+                Stroke="Black" 
+                Margin="420,420,70,70"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+                Margin="490,420,0,70"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}"
+                Stroke="Black" 
+                Margin="420,420,70,70"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+                Margin="0,490,490,0"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}" 
+                Stroke="Black" 
+                Margin="70,490,420,0"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+                Margin="140,490,350,0"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}" 
+                Stroke="Black" 
+                Margin="210,490,280,0"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+                Margin="280,490,210,0"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}" 
+                Stroke="Black" 
+                Margin="350,490,140,0"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+                Margin="420,490,70,0"/>
+            <Rectangle 
+                Fill="{DynamicResource WhiteCellBrush}" 
+                Stroke="Black" 
+                Margin="490,490,0,0"/>
+            <Rectangle 
+                Fill="{DynamicResource BlackCellBrush}" 
+                Stroke="Black" 
+                Margin="0,70,490,420"/>
 
+        </Grid>
+        <Rectangle 
+            Stroke="Black" 
+            Margin="0,0,580,580">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="{StaticResource BlackCellColor}"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="20" Width="70" 
+            BorderBrush="Black"
+            Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" 
+            FontSize="16" Text="A"
+            Margin="20,580,0,0"
+            FontWeight="Bold"
+            HorizontalContentAlignment="Center" 
+            Foreground="{DynamicResource WhiteCellBrush}" 
+            IsReadOnly="True"
+            IsEnabled="False"/>
+        <Rectangle 
+            Fill="{DynamicResource BlackCellBrush}" 
+            Stroke="Black" 
+            Margin="0,580,580,0" IsEnabled="False"/>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="20" Width="70" 
+            BorderBrush="Black"
+            Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" 
+            FontSize="16" Text="B" Margin="90,580,0,0" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="{DynamicResource WhiteCellBrush}" IsEnabled="False"/>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="20" Width="70" 
+            BorderBrush="Black"
+            Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" 
+            FontSize="16" Text="C" Margin="160,580,0,0" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="{DynamicResource WhiteCellBrush}" IsEnabled="False"/>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="20" Width="70" 
+            BorderBrush="Black"
+            Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" 
+            FontSize="16" Text="D" Margin="230,580,0,0" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="{DynamicResource WhiteCellBrush}" IsEnabled="False"/>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="20" Width="70" 
+            BorderBrush="Black"
+            Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" 
+            FontSize="16" Text="E" Margin="300,580,0,0" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="{DynamicResource WhiteCellBrush}" IsEnabled="False"/>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="20" Width="70" 
+            BorderBrush="Black"
+            Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" 
+            FontSize="16" Text="F" Margin="370,580,0,0" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="{DynamicResource WhiteCellBrush}" IsEnabled="False"/>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="20" Width="70" 
+            BorderBrush="Black"
+            Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" 
+            FontSize="16" Text="G" Margin="440,580,0,0" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="{DynamicResource WhiteCellBrush}" IsEnabled="False"/>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="20" Width="70" 
+            BorderBrush="Black"
+            Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" 
+            FontSize="16" Text="H" Margin="510,580,0,0" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="{DynamicResource WhiteCellBrush}" IsEnabled="False"/>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="70" Width="20" 
+            BorderBrush="Black"
+            Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" 
+            FontSize="16" Text="7" Margin="0,90,0,0" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="{DynamicResource WhiteCellBrush}" VerticalContentAlignment="Center" IsEnabled="False"/>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="70" Width="20" 
+            BorderBrush="Black"
+            Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" 
+            FontSize="16" Text="6" Margin="0,160,0,0" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="{DynamicResource WhiteCellBrush}" VerticalContentAlignment="Center" IsEnabled="False"/>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="70" Width="20" 
+            BorderBrush="Black"
+            Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" 
+            FontSize="16" Text="5" Margin="0,230,0,0" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="{DynamicResource WhiteCellBrush}" VerticalContentAlignment="Center" IsEnabled="False"/>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="70" Width="20" 
+            BorderBrush="Black"
+            Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" 
+            FontSize="16" Text="4" Margin="0,300,0,0" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="{DynamicResource WhiteCellBrush}" VerticalContentAlignment="Center" IsEnabled="False"/>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="70" Width="20" 
+            BorderBrush="Black"
+            Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" 
+            FontSize="16" Text="3" Margin="0,370,0,0" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="{DynamicResource WhiteCellBrush}" VerticalContentAlignment="Center" IsEnabled="False"/>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="70" Width="20" 
+            BorderBrush="Black"
+            Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" 
+            FontSize="16" Text="2" Margin="0,440,0,0" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="{DynamicResource WhiteCellBrush}" VerticalContentAlignment="Center" IsEnabled="False"/>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="70" Width="20" 
+            BorderBrush="Black"
+            Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" 
+            FontSize="16" Text="1" Margin="0,510,0,0" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="{DynamicResource WhiteCellBrush}" VerticalContentAlignment="Center" IsEnabled="False"/>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="20" Width="70" 
+            BorderBrush="Black"
+            Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" 
+            FontSize="16" Text="A" Margin="-50,0,0,0" 
+            FontWeight="Bold"
+            HorizontalContentAlignment="Center" 
+            RenderTransformOrigin="1,0.5" IsEnabled="False" Foreground="{DynamicResource WhiteCellBrush}"
+            >
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <RotateTransform Angle="-180"/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="20" Width="70" 
+            BorderBrush="Black"
+            Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" 
+            FontSize="16" Text="B" Margin="20,0,0,0" FontWeight="Bold" HorizontalContentAlignment="Center" RenderTransformOrigin="1,0.5" IsEnabled="False" Foreground="{DynamicResource WhiteCellBrush}">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <RotateTransform Angle="-180"/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="20" Width="70" 
+            BorderBrush="Black"
+            Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" 
+            FontSize="16" Text="C" Margin="90,0,0,0" FontWeight="Bold" HorizontalContentAlignment="Center" RenderTransformOrigin="1,0.5" IsEnabled="False" Foreground="{DynamicResource WhiteCellBrush}">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <RotateTransform Angle="-180"/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="20" Width="70" 
+            BorderBrush="Black"
+            Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" 
+            FontSize="16" Text="D" Margin="160,0,0,0" FontWeight="Bold" HorizontalContentAlignment="Center" RenderTransformOrigin="1,0.5" IsEnabled="False" Foreground="{DynamicResource WhiteCellBrush}">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <RotateTransform Angle="-180"/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="20" Width="70" 
+            BorderBrush="Black"
+            Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" 
+            FontSize="16" Text="E" Margin="230,0,0,0" FontWeight="Bold" HorizontalContentAlignment="Center" RenderTransformOrigin="1,0.5" IsEnabled="False" Foreground="{DynamicResource WhiteCellBrush}">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <RotateTransform Angle="-180"/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="20" Width="70" 
+            BorderBrush="Black"
+            Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" 
+            FontSize="16" Text="F" Margin="300,0,0,0" FontWeight="Bold" HorizontalContentAlignment="Center" RenderTransformOrigin="1,0.5" IsEnabled="False" Foreground="{DynamicResource WhiteCellBrush}">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <RotateTransform Angle="-180"/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="20" Width="70" 
+            BorderBrush="Black"
+            Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" 
+            FontSize="16" Text="G" Margin="370,0,0,0" FontWeight="Bold" HorizontalContentAlignment="Center" RenderTransformOrigin="1,0.5" IsEnabled="False" Foreground="{DynamicResource WhiteCellBrush}">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <RotateTransform Angle="-180"/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="20" Width="70" 
+            BorderBrush="Black"
+            Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" 
+            FontSize="16" Text="H" Margin="440,0,0,0" FontWeight="Bold" HorizontalContentAlignment="Center" RenderTransformOrigin="1,0.5" IsEnabled="False" Foreground="{DynamicResource WhiteCellBrush}">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <RotateTransform Angle="-180"/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <Rectangle 
+            Fill="{DynamicResource BlackCellBrush}" 
+            Stroke="Black" 
+            Margin="580,580,0,0"/>
+        <Rectangle 
+            Fill="{DynamicResource BlackCellBrush}" 
+            Stroke="Black" 
+            Margin="580,0,0,580"/>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="71" Width="20" 
+            BorderBrush="Black"
+            Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" 
+            FontSize="16" Text="8" Margin="580,20,0,0" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="{DynamicResource WhiteCellBrush}" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" IsEnabled="False">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="180"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="70" Width="20" 
+            BorderBrush="Black"
+            Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" 
+            FontSize="16" Text="7" Margin="580,90,0,0" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="{DynamicResource WhiteCellBrush}" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" IsEnabled="False">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="180"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="70" Width="20" 
+            BorderBrush="Black"
+            Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" 
+            FontSize="16" Text="6" Margin="580,160,0,0" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="{DynamicResource WhiteCellBrush}" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" IsEnabled="False">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="180"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="70" Width="20" 
+            BorderBrush="Black"
+            Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" 
+            FontSize="16" Text="5" Margin="580,230,0,0" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="{DynamicResource WhiteCellBrush}" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" IsEnabled="False">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="180"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="70" Width="20" 
+            BorderBrush="Black"
+            Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" 
+            FontSize="16" Text="4" Margin="580,300,0,0" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="{DynamicResource WhiteCellBrush}" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" IsEnabled="False">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="180"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="70" Width="20" 
+            BorderBrush="Black"
+            Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" 
+            FontSize="16" Text="3" Margin="580,370,0,0" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="{DynamicResource WhiteCellBrush}" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" IsEnabled="False">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="180"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="70" Width="20" 
+            BorderBrush="Black"
+            Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" 
+            FontSize="16" Text="2" Margin="580,440,0,0" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="{DynamicResource WhiteCellBrush}" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" IsEnabled="False">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="180"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="70" Width="20" 
+            BorderBrush="Black"
+            Background="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" 
+            FontSize="16" Text="1" Margin="580,510,0,0" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="{DynamicResource WhiteCellBrush}" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" IsEnabled="False">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="180"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <TextBox
+            TextWrapping="Wrap"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="70" Width="20" 
+            BorderBrush="Black"
+            Background="Black" 
+            FontSize="16" Text="8" FontWeight="Bold" HorizontalContentAlignment="Center" Foreground="{DynamicResource WhiteCellBrush}" VerticalContentAlignment="Center" IsEnabled="False" Margin="0,20,0,0"/>
     </Grid>
 </UserControl>

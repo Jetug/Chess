@@ -15,94 +15,35 @@ using System.Windows.Media.Effects;
 
 namespace Chess.ViewModels
 {
-    class MainViewModel: INotifyPropertyChanged
+    class MainViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        
+
         public void OnProperteyChanged([CallerMemberName] string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
-
+        //public List<int> vs { get; set; } = new List<int>();
         private List<Figure> figures = new List<Figure>();
         private List<FigureLabel> figureLabels = new List<FigureLabel>();
+        List<Label> possibleTurn_Labels = new List<Label>();
 
+        private Views.ChessField field;
 
-        /// <summary>
-        /// Расставляет фигуры на начальные позиции.
-        /// </summary>
-        public ICommand Start
+        private bool canStart = true;
+        private bool isWhiteTurn = true;
+
+        private List<Figure> test;
+        public List<Figure> Test
         {
-            get
+            get { return test; }
+            set
             {
-                return new DelegateCommand((obj) =>
-                {
-                    //for (int i = 0; i < 8; i++)
-                    //{
-                    //    figures.Add(new Pawn(new Cell(i, 1), false));
-                    //    figures.Add(new Pawn(new Cell(i, 6), true));
-                    //}
-
-                    figures.Add(new Rook(new Cell(0, 2), false));
-                    figures.Add(new Rook(new Cell(7, 0), false));
-                    figures.Add(new Rook(new Cell(0, 7), true));
-                    figures.Add(new Rook(new Cell(7, 7), true));
-
-                    figures.Add(new Knight(new Cell(1, 0), false));
-                    figures.Add(new Knight(new Cell(6, 0), false));
-                    figures.Add(new Knight(new Cell(1, 7), true));
-                    figures.Add(new Knight(new Cell(6, 7), true));
-
-                    figures.Add(new Bishop(new Cell(2, 0), false));
-                    figures.Add(new Bishop(new Cell(5, 0), false));
-                    figures.Add(new Bishop(new Cell(2, 7), true));
-                    figures.Add(new Bishop(new Cell(5, 7), true));
-                      
-                    figures.Add(new Queen(new Cell(3, 0), false));
-                    figures.Add(new Queen(new Cell(3, 7), true));
-
-                    figures.Add(new King(new Cell(4, 0), false));
-                    figures.Add(new King(new Cell(4, 7), true));
-
-                    Content = field;
-                    foreach (var f in figures)
-                    { 
-                        CreateFigure(f);
-                    }
-
-                    #region TextBox
-                    //TextBox text = new TextBox
-                    //{
-                    //    HorizontalAlignment = HorizontalAlignment.Left,
-                    //    VerticalAlignment = VerticalAlignment.Top,
-                    //    Margin = new Thickness(10, 10, 0, 0),
-                    //};
-                    //text.KeyDown += TextBox_KeyDown;
-                    //field.mainGrid.Children.Add(text);
-                    #endregion
-                });
+                test = value;
+                OnProperteyChanged();
             }
         }
-
-        public ICommand EscapeDown
-        {
-            get
-            {
-                return new DelegateCommand((obj) =>
-                {
-                    DeleteMarks();
-                });
-            }
-        }
-
-        //private void TextBox_KeyDown(object sender, KeyEventArgs e)
-        //{
-        //    TextBox textBox = (TextBox)sender;
-        //    textBox.Text += e.Key.ToString();
-        //}
-
-        private Views.GridField field = new Views.GridField();
 
         private Control content;
         public Control Content
@@ -115,99 +56,165 @@ namespace Chess.ViewModels
             }
         }
 
-        private List<Cell> test;
-        public List<Cell> Test
+        FigureLabel bufLabel = null;
+
+        #region Commands
+        /// <summary>
+        /// Расставляет фигуры на начальные позиции.
+        /// </summary>
+        public ICommand Start
         {
-            get { return test; }
-            set
+            get
             {
-                test = value;
-                OnProperteyChanged();
+                return new DelegateCommand((obj) =>
+                {
+                    figures.Clear();
+                    figureLabels.Clear();
+                    Content = null;
+                    field = new Views.ChessField();
+
+                    Content = field;
+                    foreach (var f in figures)
+                    {
+                        CreateFigure(f);
+                    }
+
+                    canStart = false;
+                    #region TextBox
+                    //TextBox text = new TextBox
+                    //{
+                    //    HorizontalAlignment = HorizontalAlignment.Left,
+                    //    VerticalAlignment = VerticalAlignment.Top,
+                    //    Margin = new Thickness(10, 10, 0, 0),
+                    //};
+                    //text.KeyDown += TextBox_KeyDown;
+                    //field.mainGrid.Children.Add(text);
+                    #endregion
+                }
+                //,(obj) => canStart
+                );
             }
         }
 
-        
+        //private DelegateCommand exitCmd;
+
+        /// <summary>
+        /// Удаляет с поля метки возможных ходов при нажатии клавиши Escape.
+        /// </summary>
+        public ICommand EscapeDown
+        {
+            get
+            {
+                //return exitCmd ?? (exitCmd = new DelegateCommand(Exit));
+                return new DelegateCommand((sender) =>
+                {
+                    KeyEventArgs args = sender as KeyEventArgs;
+                    if (args != null && args.Key == Key.Escape)
+                        DeleteMarks();
+                });
+            }
+        }
+        #endregion
+
+
+        //private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    TextBox textBox = (TextBox)sender;
+        //    textBox.Text += e.Key.ToString();
+        //}
+
+        /// <summary>
+        /// Создаёт новую фигуру и добавляет её на поле.
+        /// </summary>
+        /// <param name="figure">Фигура которую нужно создать.</param>
         public void CreateFigure(Figure figure)
         {
-            FigureLabel figureLabel = new FigureLabel
-            {
-                HorizontalAlignment = HorizontalAlignment.Left,
-                VerticalAlignment = VerticalAlignment.Top,
-                Margin = new Thickness(figure.cell.PosX * 70, figure.cell.PosY * 70, 0, 0),
-                Height = 70,
-                Width = 70,
-
-                HorizontalContentAlignment = HorizontalAlignment.Center,
-                VerticalContentAlignment = VerticalAlignment.Center,
-                Content = figure.Icon,
-                FontSize = 45,
-                Figure = figure
-            };
+            FigureLabel figureLabel = new FigureLabel(figure);
 
             figureLabel.Effect = new DropShadowEffect
             {
                 Color = new Color { A = 0, R = 150, G = 150, B = 150, },
                 ShadowDepth = 2
             };
-            figureLabel.MouseDown += Mark_Click;
-            //figureLabel.KeyDown += EscapeDown;
-            //figureLabel.MouseLeave += DeleteMarks;
+            #region Flip
+            //if (!figure.IsWhite)
+            //{
+            //    figureLabel.RenderTransformOrigin = new Point(0.5, 0.5);
+            //    figureLabel.RenderTransform = new RotateTransform(180);
+            //}
+            #endregion
+            figureLabel.MouseDown += CreateMarks;
 
             BrushConverter converter = new BrushConverter();
-            if (figure.isWhite)
+            if (figure.IsWhite)
                 figureLabel.Foreground = (Brush)converter.ConvertFromString("#FFFFFFFF");
-            
+
 
             field.mainGrid.Children.Add(figureLabel);
             figureLabels.Add(figureLabel);
         }
+
         
-        List<Label> possibleTurn_Labels = new List<Label>();
-
-        FigureLabel bufLabel = null;
-
-        private void Mark_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Создаёт на поле метки показывающие возможные ходы.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CreateMarks(object sender, RoutedEventArgs e)
         {
             DeleteMarks();
             var label = (FigureLabel)sender;
-            List<Cell> cells = label.Figure.GetPossibleTurns(figures);
-            Test = cells;
-            foreach (Cell c in cells)
+
+            //if (label.Figure.IsWhite == isWhiteTurn)
             {
-                BrushConverter converter = new BrushConverter();
-                Label possibleTurn_Label = new Label
+                List<Cell> cells = label.Figure.GetPossibleTurns(figures);
+                //Test = cells;
+                foreach (Cell c in cells)
                 {
-                    HorizontalAlignment = HorizontalAlignment.Left,
-                    VerticalAlignment = VerticalAlignment.Top,
-                    Margin = new Thickness(c.PosX * 70, c.PosY * 70, 0, 0),
-                    Height = 70,
-                    Width = 70,
+                    BrushConverter converter = new BrushConverter();
+                    Label possibleTurn_Label = new Label
+                    {
+                        HorizontalAlignment = HorizontalAlignment.Left,
+                        VerticalAlignment = VerticalAlignment.Top,
+                        Margin = new Thickness(c.PosX * 70, c.PosY * 70, 0, 0),
+                        Height = 70,
+                        Width = 70,
+                        Background = (Brush)converter.ConvertFromString("#FF2A9224"),
+                        Opacity = 0.5,
+                        BorderThickness = new Thickness(1)
+                    };
+                    possibleTurn_Label.MouseDown += MoveFigure;
+                    if (c.IsCastling)
+                    {
+                        possibleTurn_Label.MouseDown += (send, a) => 
+                        {
+                            foreach (var fLabel in figureLabels)
+                            {
+                                if (fLabel.Figure is Rook && fLabel.Figure == c.RookForCastling)
+                                {
+                                    fLabel.Cell = ((Rook)fLabel.Figure).CastlingCell;
+                                    Test = figures;
+                                }
+                                //if (f.Figure is Rook && f.Figure.Cell == c.RookForCastling.Cell)
+                                //{
+                                //    f.Figure.Cell = ((Rook)f.Figure).CastlingCell;
+                                //    f.Margin = new Thickness(f.Figure.Cell.PosX * 70, f.Figure.Cell.PosY * 70, 0, 0);
+                                //}
+                            }
+                        };
+                    }
 
-                    HorizontalContentAlignment = HorizontalAlignment.Center,
-                    VerticalContentAlignment = VerticalAlignment.Center,
-                    FontSize = 45,
-                    Background = (Brush)converter.ConvertFromString("#FF2A9224"),
-                    Opacity = 0.5,
-                    BorderThickness = new Thickness(1)
-                };
-                possibleTurn_Label.MouseDown += MoveFigure;
-                //possibleTurn_Label.KeyDown += EscapeDown;
-
-                bufLabel = label;
-                field.mainGrid.Children.Add(possibleTurn_Label);
-                possibleTurn_Labels.Add(possibleTurn_Label);
+                    bufLabel = label;
+                    field.mainGrid.Children.Add(possibleTurn_Label);
+                    possibleTurn_Labels.Add(possibleTurn_Label);
+                }
             }
         }
 
-        //private void DeleteMarks(object sender, RoutedEventArgs e)
-        //{
-        //    foreach (Label l in possibleTurn_Labels)
-        //    {
-        //        field.mainGrid.Children.Remove(l);
-        //    }
-        //}
-
-        public void DeleteMarks()
+        /// <summary>
+        /// 
+        /// </summary>
+        private void DeleteMarks()
         {
             foreach (Label l in possibleTurn_Labels)
             {
@@ -215,29 +222,109 @@ namespace Chess.ViewModels
             }
         }
 
+        /// <summary>
+        /// Перемещает фигуру на выбранную клетку.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MoveFigure(object sender, RoutedEventArgs e)
         {
-            Label label = (Label)sender;
+            Label mark = (Label)sender;
             if (bufLabel != null)
             {
-                foreach(FigureLabel f in figureLabels)
+                foreach (FigureLabel figureLabel in figureLabels)
                 {
-                    if ((label.Margin.Left / 70 == f.Figure.cell.PosX) && (label.Margin.Top / 70 == f.Figure.cell.PosY))
+                    if ((mark.Margin.Left / 70 == figureLabel.Figure.Cell.PosX) && (mark.Margin.Top / 70 == figureLabel.Figure.Cell.PosY))
                     {
-                        field.mainGrid.Children.Remove(f);
-                        figureLabels.Remove(f);
-                        figures.Remove(f.Figure);
+                        RemoveFigure(figureLabel);
+                        if (figureLabel.Figure is King)
+                        {
+                            MessageBox.Show("Мат!");
+                            foreach (var control in field.mainGrid.Children)
+                            {
+                                if(control is FigureLabel)
+                                {
+                                    ((FigureLabel)control).MouseDown -= CreateMarks;
+                                }
+                            }
+                            canStart = true;
+                        }
                         break;
                     };
                 }
-                bufLabel.Margin = label.Margin;
-                bufLabel.Figure.cell = new Cell((int)label.Margin.Left / 70, (int)label.Margin.Top / 70);
+                bufLabel.Margin = mark.Margin;
+                bufLabel.Figure.Cell = new Cell((int)mark.Margin.Left / 70, (int)mark.Margin.Top / 70);
+                //isWhiteTurn = !bufLabel.Figure.IsWhite;
             }
             DeleteMarks();
             bufLabel = null;
-            Test = new List<Cell>();
+            Test = figures;
+            //Test = new List<Cell>();
         }
-        
-        
+
+        private void RemoveFigure(FigureLabel figureLabel)
+        {
+            field.mainGrid.Children.Remove(figureLabel);
+            figureLabels.Remove(figureLabel);
+            figures.Remove(figureLabel.Figure);
+        }
+
+        public static Figure PawnTransformFigure { get; set; }
+
+        private void TransformPawn(Pawn pawn)
+        {
+            #region s
+            //ListView figuresForTransform = new ListView
+            //{
+            //    HorizontalAlignment = HorizontalAlignment.Left,
+            //    VerticalAlignment = VerticalAlignment.Top,
+            //    Margin = new Thickness(pawn.Cell.PosX * 70 - 10, pawn.Cell.PosY * 70, 0, 0),
+            //    Width = 90,
+            //    Height = 200,
+            //};
+            //List<FigureLabel> figuresList = new List<FigureLabel>
+            //{
+            //    new FigureLabel(new Queen(new Cell(0, 0), pawn.IsWhite)),
+            //    new FigureLabel(new Knight(new Cell(0, 0), pawn.IsWhite)),
+            //    new FigureLabel(new Rook (new Cell(0, 0), pawn.IsWhite)),
+            //    new FigureLabel(new Bishop(new Cell(0, 0), pawn.IsWhite)),
+
+            //};
+            //figuresForTransform.ItemsSource = figuresList;
+            #endregion
+            #region e
+            //field.mainGrid.Children.Add(figuresForTransform);
+            //MessageBox.Show("Trans!");
+
+            //FigureLabel queenLabel = new FigureLabel(new Queen(new Cell(0, 0), pawn.IsWhite));
+            //FigureLabel knightLabel = new FigureLabel(new Knight(new Cell(1, 0), pawn.IsWhite)) { Margin = new Thickness(130,0,0,0)};
+            //FigureLabel rookLabel = new FigureLabel(new Rook(new Cell(0, 1), pawn.IsWhite)) { Margin = new Thickness(0, 130, 0, 0) };
+            //FigureLabel bishopLabel = new FigureLabel(new Bishop(new Cell(1, 1), pawn.IsWhite)) { Margin = new Thickness(130, 130, 0, 0) };
+
+            //queenLabel.MouseDown += CloseDialogWindow;
+            //knightLabel.MouseDown += CloseDialogWindow;
+            //rookLabel.MouseDown += CloseDialogWindow;
+            //bishopLabel.MouseDown += CloseDialogWindow;
+
+            //dialogWindow.figureGrid.Children.Add(queenLabel);
+            //dialogWindow.figureGrid.Children.Add(knightLabel);
+            //dialogWindow.figureGrid.Children.Add(rookLabel);
+            //dialogWindow.figureGrid.Children.Add(bishopLabel);
+            #endregion
+            Views.PawnTransformationDialogWindow dialogWindow = new Views.PawnTransformationDialogWindow();
+            dialogWindow.ShowDialog();
+            PawnTransformFigure.Cell = pawn.Cell;
+            PawnTransformFigure.IsWhite = pawn.IsWhite;
+
+            RemoveFigure(bufLabel);
+
+            //figures.Remove(pawn);
+            //figureLabels.Remove(bufLabel);
+            //field.mainGrid.Children.Remove(bufLabel);
+
+            figures.Add(PawnTransformFigure);
+            CreateFigure(PawnTransformFigure);
+            PawnTransformFigure = null;
+        }
     }
 }
