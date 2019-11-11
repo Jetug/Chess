@@ -24,9 +24,18 @@ namespace Chess.Models
             this.PosX = posX;
             this.PosY = posY;
         }
+
         public static bool IsNull(Cell value)
         {
             return value == null ? true : false;
+        }
+
+        public static bool IsEqual(Cell cellA, Cell cellB)
+        {
+            if (cellA.PosX == cellB.PosX && cellA.PosY == cellB.PosY)
+                return true;
+            else
+                return false;
         }
 
         public bool IsCastling { get; set; } = false;

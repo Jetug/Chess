@@ -10,5 +10,7 @@
 
     <Color x:Key="FieldBorder">#FF000000</Color>
     <SolidColorBrush x:Key="FieldBorderBrush" Color="{StaticResource FieldBorder}"/>
-    
+
+    <Image x:Key="FlipIcon" Source="C:\Projects\C#\Chess\Source\FlipIcon.png"></Image>
+
 </ResourceDictionary>

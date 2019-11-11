@@ -7,19 +7,15 @@
              mc:Ignorable="d" 
                          d:DesignHeight="600" d:DesignWidth="600">
     <Grid>
-
-        <Rectangle 
+        <!--<Rectangle 
             HorizontalAlignment="Left"
             Height="600" Width="600"
             Stroke="Black" 
             VerticalAlignment="Top" 
-            Fill="{DynamicResource FieldBorderBrush}"/>
-        <Rectangle 
-            HorizontalAlignment="Left"
-            Height="20" Width="20"
-            Stroke="Black" 
-            VerticalAlignment="Top" 
-            Fill="{DynamicResource BlackCellBrush}" Margin="0"/>
+            Fill="{DynamicResource FieldBorderBrush}"/>-->
+
+        <Border BorderBrush="Black" BorderThickness="20"/>
+        
         <Grid Name = "mainGrid" Height="560" Width="560" >
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}"
@@ -358,25 +354,7 @@
             Text="1"
             VerticalAlignment="Top" 
             Height="20" Width="10" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource WhiteCellBrush}"/>
-        <Rectangle 
-            HorizontalAlignment="Left"
-            Height="20" Width="20"
-            Stroke="Black" 
-            VerticalAlignment="Top" 
-            Fill="{DynamicResource BlackCellBrush}" 
-            Margin="580,0,0,0"/>
-        <Rectangle 
-            HorizontalAlignment="Left"
-            Height="20" Width="20"
-            Stroke="Black" 
-            VerticalAlignment="Top" 
-            Fill="{DynamicResource BlackCellBrush}" Margin="0,580,0,0"/>
-        <Rectangle 
-            HorizontalAlignment="Left"
-            Height="20" Width="20"
-            Stroke="Black" 
-            VerticalAlignment="Top" 
-            Fill="{DynamicResource BlackCellBrush}" Margin="580,580,0,0"/>
+        
         <TextBlock
             HorizontalAlignment="Left"
             Margin="585,45,0,7"
@@ -696,8 +674,28 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-
-
-
+        <Rectangle 
+            HorizontalAlignment="Left"
+            Height="20" Width="20"
+            VerticalAlignment="Top" 
+            Fill="{DynamicResource BlackCellBrush}"/>
+        <Rectangle 
+            HorizontalAlignment="Left"
+            Height="20" Width="20"
+            VerticalAlignment="Top" 
+            Fill="{DynamicResource BlackCellBrush}" 
+            Margin="580,0,0,0"/>
+        <Rectangle 
+            HorizontalAlignment="Left"
+            Height="20" Width="20"
+            VerticalAlignment="Top" 
+            Fill="{DynamicResource BlackCellBrush}"
+            Margin="0,580,0,0"/>
+        <Rectangle 
+            HorizontalAlignment="Left"
+            Height="20" Width="20" 
+            VerticalAlignment="Top" 
+            Fill="{DynamicResource BlackCellBrush}"
+            Margin="580,580,0,0"/>
     </Grid>
 </UserControl>

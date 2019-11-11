@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using System.Windows;
-using System.Data.Linq;
 using Chess.Models;
-using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Media.Effects;
 
 namespace Chess.ViewModels
 {
@@ -35,7 +26,7 @@ namespace Chess.ViewModels
                 return new DelegateCommand((obj) =>
                 {
                     //MessageBox.Show((string)((Label)obj).Content);
-                    string icon = (string)((Label)obj).Content;
+                    string icon = (string)obj;
                     switch (icon)
                     {
                         case "♛": MainModel.PawnTransformFigure = new Queen(new Cell(0, 0), true); break;

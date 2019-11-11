@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-
+using System.Windows.Media;
 
 namespace Chess.Models
 {
@@ -52,9 +52,9 @@ namespace Chess.Models
 
             Height = 70;
             Width = 70;
-
             HorizontalContentAlignment = HorizontalAlignment.Center;
             VerticalContentAlignment = VerticalAlignment.Center;
+            FontFamily = new FontFamily("Segoe UI Symbol");
             Content = figure.Icon;
             FontSize = 45;
         }

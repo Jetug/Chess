@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Chess.Models;
+using System.Threading;
 
 namespace Chess.Models
 {
@@ -22,6 +24,9 @@ namespace Chess.Models
         /// </summary>
         public abstract Cell Cell { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public abstract string Icon{ get; }
 
         /// <summary>
@@ -30,6 +35,7 @@ namespace Chess.Models
         /// <param name="figures">Список всех фирур находящихся на поле.</param>
         /// <returns></returns>
         public abstract List<Cell> GetPossibleTurns(List<Figure> figures);
+
         /// <summary>
         /// Инициализирует новый экземпляр класса Figure.
         /// </summary>
@@ -41,6 +47,11 @@ namespace Chess.Models
         {
             this.cell = cell;
             this.IsWhite = isWhite;
+        }
+
+        public static void Check(Figure figure, List<Figure> figures)
+        {
+            figure.GetPossibleTurns(figures);
         }
     }
 
@@ -160,6 +171,7 @@ namespace Chess.Models
     /// </summary>
     public class King : Figure
     {
+        public override string Icon => "♚";
         public bool FirstMove { get; set; } = true;
 
         /// <summary>
@@ -175,6 +187,9 @@ namespace Chess.Models
             }
         }
 
+        /// <summary>
+        /// Инициализирует новый экземпляр класса King и задаёт начальную поцицию и цвет фигуры.
+        /// </summary>
         public King(Cell cell, bool isWhite) : base(cell, isWhite){}
 
         private Cell GetCastling(int x, int y, List<Figure> figures)
@@ -296,20 +311,34 @@ namespace Chess.Models
             {
                 foreach (var figure in figures)
                 {
-                    //bool notACheck = true;
-                    //foreach (var cell in figure.GetPossibleTurns(figures))
+                    //bool stop = false;
+                    ////Thread thread = new Thread(
+                    //Task.Factory.StartNew(
+                    //() => 
                     //{
-                    //    if (cell.PosX == x && cell.PosY == y && this.IsWhite != figure.IsWhite)
+                    //    if(figure.IsWhite != IsWhite)
                     //    {
-                    //        notACheck = false;
-                    //        //return null;
+                    //        foreach (Cell cell in figure.GetPossibleTurns(figures))
+                    //        {
+                    //            //if(true)
+                    //            if (cell.PosX == x && cell.PosY == y)
+                    //            {
+                    //                MessageBox.Show("!!!");
+                    //                canMove = false;
+                    //                stop = true;
+                    //                break;
+                    //            }
+                    //        }
                     //    }
+                    //});
+
+                    //if (stop)
+                    //{
+                    //    MessageBox.Show("!!!");
+                    //    return null;
                     //}
-                    //if(notACheck)
 
-                    //var fig2 = figures;
-
-                    //var a = figure.GetPossibleTurns(fig2);
+                    Figure.Check(figure, figures);
 
                     if ( (x == figure.Cell.PosX && y == figure.Cell.PosY) /*|| figure.GetPossibleTurns(figures).Contains(new Cell(x, y))*/  )
                     {
@@ -331,15 +360,17 @@ namespace Chess.Models
         /// <returns></returns>
         public override List<Cell> GetPossibleTurns(List<Figure> figures)
         {
-            List<Cell> turns = new List<Cell>();
-            turns.Add(GetTurn(Cell.PosX, Cell.PosY + 1, figures));
-            turns.Add(GetTurn(Cell.PosX, Cell.PosY - 1, figures));
-            turns.Add(GetTurn(Cell.PosX + 1, Cell.PosY, figures));
-            turns.Add(GetTurn(Cell.PosX - 1, Cell.PosY, figures));
-            turns.Add(GetTurn(Cell.PosX + 1, Cell.PosY + 1, figures));
-            turns.Add(GetTurn(Cell.PosX - 1, Cell.PosY + 1, figures));
-            turns.Add(GetTurn(Cell.PosX + 1, Cell.PosY - 1, figures));
-            turns.Add(GetTurn(Cell.PosX - 1, Cell.PosY - 1, figures));
+            List<Cell> turns = new List<Cell>
+            {
+                GetTurn(Cell.PosX, Cell.PosY + 1, figures),
+                GetTurn(Cell.PosX, Cell.PosY - 1, figures),
+                GetTurn(Cell.PosX + 1, Cell.PosY, figures),
+                GetTurn(Cell.PosX - 1, Cell.PosY, figures),
+                GetTurn(Cell.PosX + 1, Cell.PosY + 1, figures),
+                GetTurn(Cell.PosX - 1, Cell.PosY + 1, figures),
+                GetTurn(Cell.PosX + 1, Cell.PosY - 1, figures),
+                GetTurn(Cell.PosX - 1, Cell.PosY - 1, figures)
+            };
             if (FirstMove)
             {
                 turns.Add(GetCastling(2, IsWhite ? 7 : 0, figures));
@@ -347,12 +378,24 @@ namespace Chess.Models
             }
             turns.RemoveAll(Cell.IsNull);
 
-            var fgs = figures;
+            #region turns.RemoveAll((match) =>
+            turns.RemoveAll((match) =>
+            {
+                bool isCheck = false;
+
+                foreach (var fig in figures)
+                {
+                    if (fig.GetPossibleTurns(figures).Contains(match))
+                        isCheck = true;
+
+                }
+                return isCheck;
+            });
+            #endregion
 
             return turns;
         }
 
-        public override string Icon => "♚";
     }
 
     /// <summary>

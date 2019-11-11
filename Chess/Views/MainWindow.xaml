@@ -1,4 +1,4 @@
-﻿<Window
+﻿  <Window
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
@@ -10,9 +10,9 @@
     x:Class="Chess.MainWindow"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Chess" Height="650" Width="750" 
+        Title="Игра Шахматы с человеком" Height="650" Width="750" 
         MinWidth="750" MinHeight="650"
-        Background="#FF2B2B2B" >
+        Background="#FF2B2B2B">
     <Window.DataContext>
         <vm:MainViewModel/>
     </Window.DataContext>
@@ -62,7 +62,8 @@
             Margin="10.333,0,0,0"
             Grid.Column="2" 
             OpacityMask="#FFCDCDCD"/>
-        <DataGrid Grid.ColumnSpan="2" 
+        <DataGrid Visibility="Hidden"
+                  Grid.ColumnSpan="2" 
                   HorizontalAlignment="Left" 
                   Height="255" Width="108"
                   VerticalAlignment="Top"
@@ -75,22 +76,21 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <CheckBox 
-            Name="flip_ComboBox"
-            Grid.ColumnSpan="2" 
-            Content="Перевернуть &#xD;&#xA;чёрные фигуры" 
-            HorizontalAlignment="Left" 
-            Margin="0,347,0,0" 
-            VerticalAlignment="Top" 
-            Width="105"
-            Foreground="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}" Height="30"/>
+        <!--Content="  Перевернуть &#xD;&#xA;чёрные фигуры"-->
         <Button
             Name="flipButton"
-            Grid.ColumnSpan="2" 
-            Content="Перевернуть &#xD;&#xA;чёрные фигуры"
+            Grid.ColumnSpan="2"
             HorizontalAlignment="Left"
-            Margin="5,382,0,0" 
+            Margin="28,343,0,0" 
             VerticalAlignment="Top"
-            Width="100" Height="42"/>
+            Width="56" Height="53" 
+            Background="#FF3232A6"
+            Foreground="#FF9CABAB"
+            BorderBrush="Black" 
+            FontWeight="Bold"
+            HorizontalContentAlignment="Center"
+            Command="{Binding Flip}">
+            <Image Source="C:\Projects\C#\Chess\Source\Flopp.png"></Image>
+        </Button>
     </Grid>
 </Window>

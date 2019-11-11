@@ -39,7 +39,7 @@
                     <i:EventTrigger EventName="MouseDown">
                         <i:InvokeCommandAction 
                                 Command="{Binding CloseWindow}"
-                                CommandParameter="{Binding ElementName=queenLabel}"/>
+                                CommandParameter="{Binding ElementName=queenLabel, Path=Content}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
 
@@ -58,7 +58,7 @@
                     <i:EventTrigger EventName="MouseDown">
                         <i:InvokeCommandAction 
                             Command="{Binding CloseWindow}"
-                            CommandParameter="{Binding ElementName=rookLabel}"/>
+                            CommandParameter="{Binding ElementName=queenLabel, Path=Content}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </Label>
@@ -71,12 +71,12 @@
                     HorizontalContentAlignment="Center" 
                     VerticalContentAlignment="Center" 
                     VerticalAlignment="Top"
-                    HorizontalAlignment="Left">
+                    HorizontalAlignment="Left" FontFamily="Yu Mincho Demibold">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseDown">
                         <i:InvokeCommandAction 
                             Command="{Binding CloseWindow}"
-                            CommandParameter="{Binding ElementName=knightLabel}"/>
+                            CommandParameter="{Binding ElementName=queenLabel, Path=Content}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </Label>
@@ -94,7 +94,7 @@
                     <i:EventTrigger EventName="MouseDown">
                         <i:InvokeCommandAction 
                             Command="{Binding CloseWindow}"
-                            CommandParameter="{Binding ElementName=bishopLabel}"/>
+                            CommandParameter="{Binding ElementName=queenLabel, Path=Content}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </Label>
