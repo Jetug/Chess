@@ -49,122 +49,22 @@ namespace Chess.Models
             this.IsWhite = isWhite;
         }
 
-        public static void Check(Figure figure, List<Figure> figures)
+        public static int i = 0;
+
+        public async void Check(Figure figure, List<Figure> figures)
         {
-            figure.GetPossibleTurns(figures);
+            await Task.Run(() => 
+            {
+                i++;
+                MessageBox.Show(i.ToString());
+                //Pawn pawn = new Pawn(cell, IsWhite);
+                //pawn.GetPossibleTurns(figures);
+                figure.GetPossibleTurns(figures);
+            });
+            //figure.GetPossibleTurns(figures);
         }
     }
 
-    /// <summary>
-    ///  Представляет фигуру "Пешка".
-    /// </summary>
-    public class Pawn : Figure
-    {
-        public override string Icon => "♟";
-        /// <summary>
-        /// Возвращает или задаёт является ли данный ход для пешки первым.
-        /// </summary>
-        public bool FirstMove { get; set; } = true;
-        public delegate void PawnTransformationEventHandler(Pawn pawn);
-        
-        /// <summary>
-        /// Срабатывает когда пешка доходит до конца поля.
-        /// </summary>
-        public event PawnTransformationEventHandler PawnTransformation;
-        public PawnTransformationEventHandler SetPawnTransformation { set { PawnTransformation += value; } }
-
-        /// <summary>
-        /// Взвращает или задаёт позицию пешки на поле
-        /// </summary>
-        public override Cell Cell
-        {
-            get => cell;
-            set
-            {
-                FirstMove = false;
-                cell = value;
-                if ((IsWhite && Cell.PosY == 0) || (!IsWhite && Cell.PosY == 7))
-                {
-                    PawnTransformation?.Invoke(this);
-                }
-            }
-        }
-        /// <summary>
-        /// Инициализирует новый экземпляр класса Pawn и задаёт начальную поцицию и цвет фигуры.
-        /// </summary>
-        public Pawn(Cell cell, bool isWhite) : base(cell, isWhite){}
-
-        private Cell GetMoveTurn(int x, int y, List<Figure> figures)
-        {
-            bool canMove = true;
-            foreach (var figure in figures)
-            {
-                if (Cell.PosX == figure.Cell.PosX && y == figure.Cell.PosY || x < 0 || 7 < x || y < 0 || 7 < y)
-                {
-                    canMove = false;
-                    break;
-                }
-            }
-            if (canMove)
-            {
-                return new Cell(x, y);
-            }
-            else
-                return null;
-        }
-
-        private Cell GetEatTurn(int x, int y, List<Figure> figures)
-        {
-            foreach (var figure in figures)
-            {
-                if (x == figure.Cell.PosX && y == figure.Cell.PosY && IsWhite != figure.IsWhite)
-                {
-                    return new Cell(x, y);
-                }
-            }
-            return null;
-        }
-
-        /// <summary>
-        /// Возвращает все возможные для пешки ходы.
-        /// </summary>
-        /// <param name="figures">Список всех фирур находящихся на поле.</param>
-        /// <returns></returns>
-        public override List<Cell> GetPossibleTurns(List<Figure> figures)
-        {
-            List<Cell> turns = new List<Cell>();
-
-            int x = Cell.PosX;
-            int y = IsWhite ? Cell.PosY - 1: Cell.PosY + 1;
-
-            turns.Add(GetMoveTurn(x, y, figures));
-
-            bool can = true;
-            foreach (var f in figures)
-            {
-                if(f.Cell.PosX == x && f.Cell.PosY == y)
-                {
-                    can = false;
-                }
-            }
-
-            if (can && FirstMove)
-            {
-                y = IsWhite ? Cell.PosY - 2 : Cell.PosY + 2;
-                turns.Add(GetMoveTurn(x, y, figures));
-            }
-
-            y = IsWhite ? Cell.PosY - 1 : Cell.PosY + 1;
-            x = Cell.PosX + 1;
-            turns.Add(GetEatTurn(x, y, figures));
-
-            x = Cell.PosX - 1;
-            turns.Add(GetEatTurn(x, y, figures));
-
-            turns.RemoveAll(Cell.IsNull);
-            return turns;
-        }
-    }
 
     /// <summary>
     /// Представляет фигуру "Король".
@@ -338,7 +238,7 @@ namespace Chess.Models
                     //    return null;
                     //}
 
-                    Figure.Check(figure, figures);
+                    //Check(figure, figures);
 
                     if ( (x == figure.Cell.PosX && y == figure.Cell.PosY) /*|| figure.GetPossibleTurns(figures).Contains(new Cell(x, y))*/  )
                     {
@@ -360,6 +260,9 @@ namespace Chess.Models
         /// <returns></returns>
         public override List<Cell> GetPossibleTurns(List<Figure> figures)
         {
+            foreach(var figure in figures)
+                Check(figure, figures);
+
             List<Cell> turns = new List<Cell>
             {
                 GetTurn(Cell.PosX, Cell.PosY + 1, figures),
@@ -420,6 +323,117 @@ namespace Chess.Models
             List<Cell> turns = new List<Cell>();
             turns.AddRange(new Rook(Cell, IsWhite).GetPossibleTurns(cells));
             turns.AddRange(new Bishop(Cell, IsWhite).GetPossibleTurns(cells));
+            return turns;
+        }
+    }
+
+    /// <summary>
+    ///  Представляет фигуру "Пешка".
+    /// </summary>
+    public class Pawn : Figure
+    {
+        public override string Icon => "♟";
+        /// <summary>
+        /// Возвращает или задаёт является ли данный ход для пешки первым.
+        /// </summary>
+        public bool FirstMove { get; set; } = true;
+        public delegate void PawnTransformationEventHandler(Pawn pawn);
+
+        /// <summary>
+        /// Срабатывает когда пешка доходит до конца поля.
+        /// </summary>
+        public event PawnTransformationEventHandler PawnTransformation;
+        public PawnTransformationEventHandler SetPawnTransformation { set { PawnTransformation += value; } }
+
+        /// <summary>
+        /// Взвращает или задаёт позицию пешки на поле
+        /// </summary>
+        public override Cell Cell
+        {
+            get => cell;
+            set
+            {
+                FirstMove = false;
+                cell = value;
+                if ((IsWhite && Cell.PosY == 0) || (!IsWhite && Cell.PosY == 7))
+                {
+                    PawnTransformation?.Invoke(this);
+                }
+            }
+        }
+        /// <summary>
+        /// Инициализирует новый экземпляр класса Pawn и задаёт начальную поцицию и цвет фигуры.
+        /// </summary>
+        public Pawn(Cell cell, bool isWhite) : base(cell, isWhite) { }
+
+        private Cell GetMoveTurn(int x, int y, List<Figure> figures)
+        {
+            bool canMove = true;
+            foreach (var figure in figures)
+            {
+                if (Cell.PosX == figure.Cell.PosX && y == figure.Cell.PosY || x < 0 || 7 < x || y < 0 || 7 < y)
+                {
+                    canMove = false;
+                    break;
+                }
+            }
+            if (canMove)
+            {
+                return new Cell(x, y);
+            }
+            else
+                return null;
+        }
+
+        private Cell GetEatTurn(int x, int y, List<Figure> figures)
+        {
+            foreach (var figure in figures)
+            {
+                if (x == figure.Cell.PosX && y == figure.Cell.PosY && IsWhite != figure.IsWhite)
+                {
+                    return new Cell(x, y);
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Возвращает все возможные для пешки ходы.
+        /// </summary>
+        /// <param name="figures">Список всех фирур находящихся на поле.</param>
+        /// <returns></returns>
+        public override List<Cell> GetPossibleTurns(List<Figure> figures)
+        {
+            List<Cell> turns = new List<Cell>();
+
+            int x = Cell.PosX;
+            int y = IsWhite ? Cell.PosY - 1 : Cell.PosY + 1;
+
+            turns.Add(GetMoveTurn(x, y, figures));
+
+            bool can = true;
+            foreach (var f in figures)
+            {
+                if (f.Cell.PosX == x && f.Cell.PosY == y)
+                {
+                    can = false;
+                }
+            }
+
+            if (can && FirstMove)
+            {
+                y = IsWhite ? Cell.PosY - 2 : Cell.PosY + 2;
+                turns.Add(GetMoveTurn(x, y, figures));
+            }
+
+            y = IsWhite ? Cell.PosY - 1 : Cell.PosY + 1;
+            x = Cell.PosX + 1;
+            turns.Add(GetEatTurn(x, y, figures));
+
+            x = Cell.PosX - 1;
+            turns.Add(GetEatTurn(x, y, figures));
+
+            turns.RemoveAll(Cell.IsNull);
             return turns;
         }
     }

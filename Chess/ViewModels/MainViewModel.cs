@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using System.Windows;
-using System.Data.Linq;
 using Chess.Models;
 using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Media.Effects;
 
 namespace Chess.ViewModels
 {
@@ -26,16 +18,16 @@ namespace Chess.ViewModels
 
         //public List<int> vs { get; set; } = new List<int>();
 
-        private List<Figure> test;
-        public List<Figure> Test
-        {
-            get { return test; }
-            set
-            {
-                test = value;
-                OnProperteyChanged();
-            }
-        }
+        //private List<Figure> test;
+        //public List<Figure> Test
+        //{
+        //    get { return test; }
+        //    set
+        //    {
+        //        test = value;
+        //        OnProperteyChanged();
+        //    }
+        //}
 
         private Control content;
         public Control Content
@@ -48,6 +40,8 @@ namespace Chess.ViewModels
             }
         }
 
+        public string FlipIconPath { get => AppDomain.CurrentDomain.BaseDirectory + "Flopp.png"; }
+
         #region Commands
         public ICommand Start
         {
@@ -57,23 +51,10 @@ namespace Chess.ViewModels
                 {
                     Content = null;
                     MainModel.Figures.Clear();
+                    //Task.Factory.StartNew();
                     MainModel.Start();
-
                     Content = MainModel.field;
-                    
-                    #region TextBox
-                    //TextBox text = new TextBox
-                    //{
-                    //    HorizontalAlignment = HorizontalAlignment.Left,
-                    //    VerticalAlignment = VerticalAlignment.Top,
-                    //    Margin = new Thickness(10, 10, 0, 0),
-                    //};
-                    //text.KeyDown += TextBox_KeyDown;
-                    //field.mainGrid.Children.Add(text);
-                    #endregion
-                }
-                //,(obj) => canStart
-                );
+                });
             }
         }
 
@@ -89,8 +70,7 @@ namespace Chess.ViewModels
                 //return exitCmd ?? (exitCmd = new DelegateCommand(Exit));
                 return new DelegateCommand((sender) =>
                 {
-                    KeyEventArgs args = sender as KeyEventArgs;
-                    if (args != null && args.Key == Key.Escape)
+                    if (sender is KeyEventArgs args && args.Key == Key.Escape)
                         MainModel.DeleteMarks();
                 });
             }

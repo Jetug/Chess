@@ -161,22 +161,12 @@ namespace Chess.Models
             }
         }
 
-        private static int angle = 180;
-
         private static bool m = true;
-
+        /// <summary>
+        /// Переворачивает чёрные фигуры на 180 градусов.
+        /// </summary>
         public static void FlipBlackFigures()
         {
-            if (angle == 180)
-            {
-                angle = 0;
-            }
-
-            if (angle == 0)
-            {
-                angle = 180;
-            }
-
             foreach (var figureLabel in figureLabels)
             {
                 if (!figureLabel.Figure.IsWhite)

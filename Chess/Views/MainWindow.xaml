@@ -23,7 +23,6 @@
                 PassEventArgsToCommand="True" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
-
     <Grid Name="mainGrid">
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -90,7 +89,7 @@
             FontWeight="Bold"
             HorizontalContentAlignment="Center"
             Command="{Binding Flip}">
-            <Image Source="C:\Projects\C#\Chess\Source\Flopp.png"></Image>
+            <Image Source="{Binding FlipIconPath}"/>
         </Button>
     </Grid>
 </Window>
