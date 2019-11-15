@@ -18,10 +18,10 @@ namespace Chess.Models
 
         public static Views.ChessField field;
 
-        private static bool canStart = true;
+        //private static bool canStart = true;
         private static bool isWhiteTurn = true;
 
-        public static FigureLabel bufLabel = null;
+        private static FigureLabel bufLabel = null;
 
         /// <summary>
         /// Расставляет фигуры на начальные позиции.
@@ -31,7 +31,7 @@ namespace Chess.Models
             figureLabels.Clear();
             isWhiteTurn = true;
             field = new Views.ChessField();
-            
+
             for (int i = 0; i < 8; i++)
             {
                 Figures.Add(new Pawn(new Cell(i, 1), false) { SetPawnTransformation = TransformPawn });
@@ -63,14 +63,14 @@ namespace Chess.Models
             {
                 CreateFigure(f);
             }
-            canStart = false;
+            //canStart = false;
         }
 
         /// <summary>
         /// Создаёт новую фигуру и добавляет её на поле.
         /// </summary>
         /// <param name="figure">Фигура которую нужно создать.</param>
-        public static void CreateFigure(Figure figure)
+        private static void CreateFigure(Figure figure)
         {
             FigureLabel figureLabel = new FigureLabel(figure);
 
@@ -98,7 +98,11 @@ namespace Chess.Models
             figureLabels.Add(figureLabel);
         }
 
-        public static void RemoveFigure(FigureLabel figureLabel)
+        /// <summary>
+        /// Удаляет фигуру с поля.
+        /// </summary>
+        /// <param name="figureLabel"></param>
+        private static void RemoveFigure(FigureLabel figureLabel)
         {
             field.mainGrid.Children.Remove(figureLabel);
             figureLabels.Remove(figureLabel);
@@ -145,11 +149,6 @@ namespace Chess.Models
                                     fLabel.Cell = ((Rook)fLabel.Figure).CastlingCell;
                                     //Test = figures;
                                 }
-                                //if (f.Figure is Rook && f.Figure.Cell == c.RookForCastling.Cell)
-                                //{
-                                //    f.Figure.Cell = ((Rook)f.Figure).CastlingCell;
-                                //    f.Margin = new Thickness(f.Figure.Cell.PosX * 70, f.Figure.Cell.PosY * 70, 0, 0);
-                                //}
                             }
                         };
                     }
@@ -158,6 +157,17 @@ namespace Chess.Models
                     field.mainGrid.Children.Add(possibleTurn_Label);
                     possibleTurn_Labels.Add(possibleTurn_Label);
                 }
+            }
+        }
+
+        /// <summary>
+        /// Удаляет с поля метки показывающие возможные ходы.
+        /// </summary>
+        public static void DeleteMarks()
+        {
+            foreach (Label l in possibleTurn_Labels)
+            {
+                field.mainGrid.Children.Remove(l);
             }
         }
 
@@ -179,16 +189,6 @@ namespace Chess.Models
                 }
             }
             m = !m;
-        }
-            /// <summary>
-            /// 
-            /// </summary>
-            public static void DeleteMarks()
-        {
-            foreach (Label l in possibleTurn_Labels)
-            {
-                field.mainGrid.Children.Remove(l);
-            }
         }
 
         /// <summary>
@@ -216,7 +216,7 @@ namespace Chess.Models
                                     ((FigureLabel)control).MouseDown -= CreateMarks;
                                 }
                             }
-                            canStart = true;
+                            //canStart = true;
                         }
                         break;
                     };
@@ -233,56 +233,18 @@ namespace Chess.Models
 
         public static Figure PawnTransformFigure { get; set; }
 
+        /// <summary>
+        /// Создёт диалоговое окно с выбором фигуры в которую нужно превратить пешку.
+        /// </summary>
+        /// <param name="pawn">Пешка которую нужно превратить в выбранную игроком фигуру.</param>
         public static void TransformPawn(Pawn pawn)
         {
-            #region s
-            //ListView figuresForTransform = new ListView
-            //{
-            //    HorizontalAlignment = HorizontalAlignment.Left,
-            //    VerticalAlignment = VerticalAlignment.Top,
-            //    Margin = new Thickness(pawn.Cell.PosX * 70 - 10, pawn.Cell.PosY * 70, 0, 0),
-            //    Width = 90,
-            //    Height = 200,
-            //};
-            //List<FigureLabel> figuresList = new List<FigureLabel>
-            //{
-            //    new FigureLabel(new Queen(new Cell(0, 0), pawn.IsWhite)),
-            //    new FigureLabel(new Knight(new Cell(0, 0), pawn.IsWhite)),
-            //    new FigureLabel(new Rook (new Cell(0, 0), pawn.IsWhite)),
-            //    new FigureLabel(new Bishop(new Cell(0, 0), pawn.IsWhite)),
-
-            //};
-            //figuresForTransform.ItemsSource = figuresList;
-            #endregion
-            #region e
-            //field.mainGrid.Children.Add(figuresForTransform);
-            //MessageBox.Show("Trans!");
-
-            //FigureLabel queenLabel = new FigureLabel(new Queen(new Cell(0, 0), pawn.IsWhite));
-            //FigureLabel knightLabel = new FigureLabel(new Knight(new Cell(1, 0), pawn.IsWhite)) { Margin = new Thickness(130,0,0,0)};
-            //FigureLabel rookLabel = new FigureLabel(new Rook(new Cell(0, 1), pawn.IsWhite)) { Margin = new Thickness(0, 130, 0, 0) };
-            //FigureLabel bishopLabel = new FigureLabel(new Bishop(new Cell(1, 1), pawn.IsWhite)) { Margin = new Thickness(130, 130, 0, 0) };
-
-            //queenLabel.MouseDown += CloseDialogWindow;
-            //knightLabel.MouseDown += CloseDialogWindow;
-            //rookLabel.MouseDown += CloseDialogWindow;
-            //bishopLabel.MouseDown += CloseDialogWindow;
-
-            //dialogWindow.figureGrid.Children.Add(queenLabel);
-            //dialogWindow.figureGrid.Children.Add(knightLabel);
-            //dialogWindow.figureGrid.Children.Add(rookLabel);
-            //dialogWindow.figureGrid.Children.Add(bishopLabel);
-            #endregion
             Views.PawnTransformationDialogWindow dialogWindow = new Views.PawnTransformationDialogWindow();
             dialogWindow.ShowDialog();
             PawnTransformFigure.Cell = pawn.Cell;
             PawnTransformFigure.IsWhite = pawn.IsWhite;
 
             RemoveFigure(bufLabel);
-
-            //figures.Remove(pawn);
-            //figureLabels.Remove(bufLabel);
-            //field.mainGrid.Children.Remove(bufLabel);
 
             Figures.Add(PawnTransformFigure);
             CreateFigure(PawnTransformFigure);

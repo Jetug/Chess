@@ -260,8 +260,8 @@ namespace Chess.Models
         /// <returns></returns>
         public override List<Cell> GetPossibleTurns(List<Figure> figures)
         {
-            foreach(var figure in figures)
-                Check(figure, figures);
+            //foreach (var figure in figures)
+            //    Check(figure, figures);
 
             List<Cell> turns = new List<Cell>
             {
@@ -280,21 +280,6 @@ namespace Chess.Models
                 turns.Add(GetCastling(6, IsWhite ? 7 : 0, figures));
             }
             turns.RemoveAll(Cell.IsNull);
-
-            #region turns.RemoveAll((match) =>
-            turns.RemoveAll((match) =>
-            {
-                bool isCheck = false;
-
-                foreach (var fig in figures)
-                {
-                    if (fig.GetPossibleTurns(figures).Contains(match))
-                        isCheck = true;
-
-                }
-                return isCheck;
-            });
-            #endregion
 
             return turns;
         }

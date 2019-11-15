@@ -1,4 +1,4 @@
-﻿  <Window
+﻿<Window
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
@@ -12,7 +12,7 @@
         WindowStartupLocation="CenterScreen"
         Title="Игра Шахматы с человеком" Height="650" Width="750" 
         MinWidth="750" MinHeight="650"
-        Background="#FF2B2B2B">
+        Background="{DynamicResource MainWindowBrush}">
     <Window.DataContext>
         <vm:MainViewModel/>
     </Window.DataContext>
@@ -42,10 +42,11 @@
             CommandParameter=""
             VerticalAlignment="Top" 
             Width="79" Height="61" 
-            Background="#FF3232A6" Grid.ColumnSpan="2"
+            Background="{DynamicResource ButtonBrush}"
+            Grid.ColumnSpan="2"
             Command="{Binding Start}" FontWeight="Bold" 
             Foreground="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
-            BorderBrush="Black">
+            BorderBrush="{DynamicResource FieldBorderBrush}">
             <!--<Button.Effect>
                 <DropShadowEffect 
                     Color="Black" Direction="310"
@@ -77,19 +78,19 @@
         </DataGrid>
         <!--Content="  Перевернуть &#xD;&#xA;чёрные фигуры"-->
         <Button
+            Content="{DynamicResource FlipIcon}"
             Name="flipButton"
             Grid.ColumnSpan="2"
             HorizontalAlignment="Left"
             Margin="28,343,0,0" 
             VerticalAlignment="Top"
             Width="56" Height="53" 
-            Background="#FF3232A6"
+            Background="{DynamicResource ButtonBrush}"
             Foreground="#FF9CABAB"
-            BorderBrush="Black" 
+            BorderBrush="{DynamicResource FieldBorderBrush}" 
             FontWeight="Bold"
             HorizontalContentAlignment="Center"
             Command="{Binding Flip}">
-            <Image Source="{Binding FlipIconPath}"/>
         </Button>
     </Grid>
 </Window>

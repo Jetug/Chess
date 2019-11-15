@@ -10,291 +10,291 @@
         <!--<Rectangle 
             HorizontalAlignment="Left"
             Height="600" Width="600"
-            Stroke="Black" 
+            Stroke="{DynamicResource FieldBorderBrush}" 
             VerticalAlignment="Top" 
             Fill="{DynamicResource FieldBorderBrush}"/>-->
 
-        <Border BorderBrush="Black" BorderThickness="20"/>
+        <Border BorderBrush="{DynamicResource FieldBorderBrush}" BorderThickness="20"/>
         
         <Grid Name = "mainGrid" Height="560" Width="560" >
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}"
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="0,0,490,490"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="70,0,420,490"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
             Margin="140,0,350,490"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
             Margin="210,0,280,490"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}"
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
             Margin="280,0,210,490"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
             Margin="350,0,140,490"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}"
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
             Margin="420,0,70,490"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
             Margin="490,0,0,490"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}"
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
             Margin="420,0,70,490"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="0,70,490,420"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="70,70,420,420"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="140,70,350,420"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="210,70,280,420"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="280,70,210,420"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="350,70,140,420"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="420,70,70,420"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="490,70,0,420"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="0,140,490,350"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="70,140,420,350"
                     />
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="140,140,350,350"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="210,140,280,350"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}"
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="280,140,210,350"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="350,140,140,350"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}"
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="420,140,70,350"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="490,140,0,350"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}"
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="420,140,70,350"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="0,210,490,280"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="70,210,420,280"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="140,210,350,280"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="210,210,280,280"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="280,210,210,280"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="350,210,140,280"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="420,210,70,280"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="490,210,0,280"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="0,280,490,210"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="70,280,420,210"
                     />
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="140,280,350,210"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="210,280,280,210"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}"
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="280,280,210,210"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="350,280,140,210"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}"
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="420,280,70,210"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="490,280,0,210"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}"
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="420,280,70,210"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="0,350,490,140"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="70,350,420,140"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="140,350,350,140"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="210,350,280,140"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="280,350,210,140"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="350,350,140,140"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="420,350,70,140"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="490,350,0,140"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="0,420,490,70"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="70,420,420,70"
                     />
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="140,420,350,70"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="210,420,280,70"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}"
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="280,420,210,70"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="350,420,140,70"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}"
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="420,420,70,70"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="490,420,0,70"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}"
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="420,420,70,70"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="0,490,490,0"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="70,490,420,0"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="140,490,350,0"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="210,490,280,0"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="280,490,210,0"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="350,490,140,0"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="420,490,70,0"/>
             <Rectangle 
                 Fill="{DynamicResource WhiteCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="490,490,0,0"/>
             <Rectangle 
                 Fill="{DynamicResource BlackCellBrush}" 
-                Stroke="Black" 
+                Stroke="{DynamicResource FieldBorderBrush}" 
                 Margin="0,70,490,420"/>
 
         </Grid>

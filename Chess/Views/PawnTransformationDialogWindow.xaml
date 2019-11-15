@@ -18,7 +18,7 @@
     </Window.DataContext>
 
     <Grid Name = "mainGrid" Background="{DynamicResource WhiteCellBrush}">
-        <Border BorderBrush="Black" BorderThickness="5"/>
+        <Border BorderBrush="{DynamicResource FieldBorderBrush}" BorderThickness="5"/>
 
         <Grid Name="figureGrid"
                   HorizontalAlignment="Left" 
@@ -104,6 +104,6 @@
                    Margin="50,10,0,0"
                    VerticalAlignment="Top" 
                    Width="200" FontSize="16"
-                   HorizontalContentAlignment="Center"/>
+                   HorizontalContentAlignment="Center" FontWeight="Bold"/>
     </Grid>
 </Window>

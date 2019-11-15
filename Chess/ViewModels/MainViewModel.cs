@@ -40,9 +40,12 @@ namespace Chess.ViewModels
             }
         }
 
-        public string FlipIconPath { get => AppDomain.CurrentDomain.BaseDirectory + "Flopp.png"; }
+        //public string FlipIconPath { get => AppDomain.CurrentDomain.BaseDirectory + "Flopp.png"; }
 
         #region Commands
+        /// <summary>
+        /// Обновляет игровое поле и расставляет фигуры на начальные позиции.
+        /// </summary>
         public ICommand Start
         {
             get
@@ -51,14 +54,11 @@ namespace Chess.ViewModels
                 {
                     Content = null;
                     MainModel.Figures.Clear();
-                    //Task.Factory.StartNew();
                     MainModel.Start();
                     Content = MainModel.field;
                 });
             }
         }
-
-        //private DelegateCommand exitCmd;
 
         /// <summary>
         /// Удаляет с поля метки возможных ходов при нажатии клавиши Escape.
@@ -67,7 +67,6 @@ namespace Chess.ViewModels
         {
             get
             {
-                //return exitCmd ?? (exitCmd = new DelegateCommand(Exit));
                 return new DelegateCommand((sender) =>
                 {
                     if (sender is KeyEventArgs args && args.Key == Key.Escape)
@@ -76,6 +75,9 @@ namespace Chess.ViewModels
             }
         }
 
+        /// <summary>
+        /// Переворачивает чёрные фигуры на 180 градусов.
+        /// </summary>
         public ICommand Flip
         {
             get
