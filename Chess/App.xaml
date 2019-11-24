@@ -5,7 +5,7 @@
         <ResourceDictionary Source="Styles\Colors.xaml">
         
         </ResourceDictionary>
-        <ResourceDictionary Source="Styles\Backgrounds.xaml">
+        <ResourceDictionary Source="Styles\Texts.xaml">
         
         </ResourceDictionary>
       </ResourceDictionary.MergedDictionaries>

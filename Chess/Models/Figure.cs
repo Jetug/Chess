@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using Chess.Models;
-using System.Threading;
 
 namespace Chess.Models
 {
@@ -20,12 +20,12 @@ namespace Chess.Models
         public bool IsWhite { get; /*private*/ set; }
         protected Cell cell;
         /// <summary>
-        /// Взвращает или задаёт позицию фигуры на поле.
+        /// Возвращает или задаёт позицию фигуры на поле.
         /// </summary>
         public abstract Cell Cell { get; set; }
 
         /// <summary>
-        /// 
+        /// Возвращает символ данной фигуры.
         /// </summary>
         public abstract string Icon{ get; }
 
@@ -48,23 +48,7 @@ namespace Chess.Models
             this.cell = cell;
             this.IsWhite = isWhite;
         }
-
-        public static int i = 0;
-
-        public async void Check(Figure figure, List<Figure> figures)
-        {
-            await Task.Run(() => 
-            {
-                i++;
-                MessageBox.Show(i.ToString());
-                //Pawn pawn = new Pawn(cell, IsWhite);
-                //pawn.GetPossibleTurns(figures);
-                figure.GetPossibleTurns(figures);
-            });
-            //figure.GetPossibleTurns(figures);
-        }
     }
-
 
     /// <summary>
     /// Представляет фигуру "Король".
@@ -260,9 +244,6 @@ namespace Chess.Models
         /// <returns></returns>
         public override List<Cell> GetPossibleTurns(List<Figure> figures)
         {
-            //foreach (var figure in figures)
-            //    Check(figure, figures);
-
             List<Cell> turns = new List<Cell>
             {
                 GetTurn(Cell.PosX, Cell.PosY + 1, figures),

@@ -15,25 +15,21 @@ namespace Chess.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
+        /// <summary>
+        /// Возвращает или задаёт метод закрывающий окно.
+        /// </summary>
         public Action CloseAction { get; set; }
 
-        //public Figure PawnTransformFigure { get; set; }
-
+        /// <summary>
+        /// Сохраняет выбранную игроком фигуру, в которую должна превратиться пешка и закрывает окно.
+        /// </summary>
         public ICommand CloseWindow
         {
             get
             {
                 return new DelegateCommand((obj) =>
                 {
-                    //MessageBox.Show((string)((Label)obj).Content);
-                    string icon = (string)obj;
-                    switch (icon)
-                    {
-                        case "♛": MainModel.PawnTransformFigure = new Queen(new Cell(0, 0), true); break;
-                        case "♜": MainModel.PawnTransformFigure = new Rook(new Cell(0, 0), true); break;
-                        case "♞": MainModel.PawnTransformFigure = new Knight(new Cell(0, 0), true); break;
-                        case "♝": MainModel.PawnTransformFigure = new Bishop(new Cell(0, 0), true); break;
-                    }
+                    DialogWindowModel.SetFigure((string)obj);
                     CloseAction();
                 });
             }

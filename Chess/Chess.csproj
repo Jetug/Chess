@@ -35,8 +35,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CommonServiceLocator, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\CommonServiceLocator.2.0.2\lib\net47\CommonServiceLocator.dll</HintPath>
+    <Reference Include="CommonServiceLocator, Version=2.0.5.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.5\lib\net47\CommonServiceLocator.dll</HintPath>
     </Reference>
     <Reference Include="GalaSoft.MvvmLight, Version=5.4.1.0, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
@@ -77,22 +77,18 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Cell.cs" />
+    <Compile Include="Models\DialogWindowModel.cs" />
     <Compile Include="Models\FigureLabel.cs" />
     <Compile Include="Models\MainModel.cs" />
     <Compile Include="ViewModels\DialogWindowViewModel.cs" />
+    <Compile Include="ViewModels\MateWindowViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
-    <Compile Include="Views\CField.xaml.cs">
-      <DependentUpon>CField.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\ChessField.xaml.cs">
       <DependentUpon>ChessField.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\GridField.xaml.cs">
-      <DependentUpon>GridField.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\LabelBorder.xaml.cs">
-      <DependentUpon>LabelBorder.xaml</DependentUpon>
+    <Compile Include="Views\MateWindow.xaml.cs">
+      <DependentUpon>MateWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PawnTransformationDialogWindow.xaml.cs">
       <DependentUpon>PawnTransformationDialogWindow.xaml</DependentUpon>
@@ -103,27 +99,15 @@
     <Compile Include="Views\RectField.Designer.cs">
       <DependentUpon>RectField.cs</DependentUpon>
     </Compile>
-    <Page Include="Styles\Backgrounds.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Styles\Colors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\CField.xaml">
+    <Page Include="Styles\Texts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ChessField.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\GridField.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\LabelBorder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -142,6 +126,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\MateWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\PawnTransformationDialogWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

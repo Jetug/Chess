@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Projects\C#\Chess\Chess\App.xaml
-8-1425114605
+6-48183592
 
-21118499550
-126-2104280412
-Styles\Backgrounds.xaml;Styles\Colors.xaml;Views\CField.xaml;Views\ChessField.xaml;Views\GridField.xaml;Views\LabelBorder.xaml;Views\MainWindow.xaml;Views\PawnTransformationDialogWindow.xaml;
+21-1435768446
+126-1391144830
+Styles\Colors.xaml;Styles\Texts.xaml;Views\ChessField.xaml;Views\MainWindow.xaml;Views\MateWindow.xaml;Views\PawnTransformationDialogWindow.xaml;
 
 False
 

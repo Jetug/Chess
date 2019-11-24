@@ -16,10 +16,9 @@ namespace Chess.Models
         public static List<FigureLabel> figureLabels = new List<FigureLabel>();
         public static List<Label> possibleTurn_Labels = new List<Label>();
 
-        public static Views.ChessField field;
-
-        //private static bool canStart = true;
-        private static bool isWhiteTurn = true;
+        public static Views.ChessField field = new Views.ChessField();
+        
+        public static bool IsWhiteTurn { get; private set; } = true;
 
         private static FigureLabel bufLabel = null;
 
@@ -29,7 +28,7 @@ namespace Chess.Models
         public static void Start()
         {
             figureLabels.Clear();
-            isWhiteTurn = true;
+            IsWhiteTurn = true;
             field = new Views.ChessField();
 
             for (int i = 0; i < 8; i++)
@@ -63,7 +62,6 @@ namespace Chess.Models
             {
                 CreateFigure(f);
             }
-            //canStart = false;
         }
 
         /// <summary>
@@ -119,7 +117,7 @@ namespace Chess.Models
             DeleteMarks();
             var label = (FigureLabel)sender;
 
-            //if (label.Figure.IsWhite == isWhiteTurn)
+            if (label.Figure.IsWhite == IsWhiteTurn)
             {
                 List<Cell> cells = label.Figure.GetPossibleTurns(Figures);
                 //Test = cells;
@@ -182,7 +180,7 @@ namespace Chess.Models
                 if (!figureLabel.Figure.IsWhite)
                 {
                     figureLabel.RenderTransformOrigin = new Point(0.5, 0.5);
-                    if(m)
+                    if (m)
                         figureLabel.RenderTransform = new RotateTransform(180);
                     else
                         figureLabel.RenderTransform = new RotateTransform(0);
@@ -194,8 +192,6 @@ namespace Chess.Models
         /// <summary>
         /// Перемещает фигуру на выбранную клетку.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private static void MoveFigure(object sender, RoutedEventArgs e)
         {
             Label mark = (Label)sender;
@@ -208,7 +204,7 @@ namespace Chess.Models
                         RemoveFigure(figureLabel);
                         if (figureLabel.Figure is King)
                         {
-                            MessageBox.Show("Мат!");
+                            new Views.MateWindow().ShowDialog();
                             foreach (var control in field.mainGrid.Children)
                             {
                                 if (control is FigureLabel)
@@ -216,14 +212,13 @@ namespace Chess.Models
                                     ((FigureLabel)control).MouseDown -= CreateMarks;
                                 }
                             }
-                            //canStart = true;
                         }
                         break;
                     };
                 }
                 bufLabel.Margin = mark.Margin;
                 bufLabel.Figure.Cell = new Cell((int)mark.Margin.Left / 70, (int)mark.Margin.Top / 70);
-                isWhiteTurn = !bufLabel.Figure.IsWhite;
+                IsWhiteTurn = !bufLabel.Figure.IsWhite;
             }
             DeleteMarks();
             bufLabel = null;
@@ -231,7 +226,7 @@ namespace Chess.Models
             //Test = new List<Cell>();
         }
 
-        public static Figure PawnTransformFigure { get; set; }
+        public static Figure PawnTransformFigure{ get => DialogWindowModel.PawnTransformFigure; }
 
         /// <summary>
         /// Создёт диалоговое окно с выбором фигуры в которую нужно превратить пешку.
@@ -239,8 +234,7 @@ namespace Chess.Models
         /// <param name="pawn">Пешка которую нужно превратить в выбранную игроком фигуру.</param>
         public static void TransformPawn(Pawn pawn)
         {
-            Views.PawnTransformationDialogWindow dialogWindow = new Views.PawnTransformationDialogWindow();
-            dialogWindow.ShowDialog();
+            new Views.PawnTransformationDialogWindow().ShowDialog();
             PawnTransformFigure.Cell = pawn.Cell;
             PawnTransformFigure.IsWhite = pawn.IsWhite;
 
@@ -248,7 +242,6 @@ namespace Chess.Models
 
             Figures.Add(PawnTransformFigure);
             CreateFigure(PawnTransformFigure);
-            PawnTransformFigure = null;
         }
     }
 }

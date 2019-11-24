@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows;
 using System.Windows.Input;
 using Chess.Models;
 using System.Windows.Controls;
@@ -29,13 +30,24 @@ namespace Chess.ViewModels
         //    }
         //}
 
-        private Control content;
+        private Control content = MainModel.field;
         public Control Content
         {
             get { return content; }
             set
             {
                 content = value;
+                OnProperteyChanged();
+            }
+        }
+
+        private Visibility visibility = Visibility.Hidden;
+        public Visibility Visibility
+        {
+            get { return visibility; }
+            set
+            {
+                visibility = value;
                 OnProperteyChanged();
             }
         }
@@ -56,6 +68,7 @@ namespace Chess.ViewModels
                     MainModel.Figures.Clear();
                     MainModel.Start();
                     Content = MainModel.field;
+                    Visibility = Visibility.Visible;
                 });
             }
         }
@@ -67,9 +80,9 @@ namespace Chess.ViewModels
         {
             get
             {
-                return new DelegateCommand((sender) =>
+                return new DelegateCommand((obj) =>
                 {
-                    if (sender is KeyEventArgs args && args.Key == Key.Escape)
+                    if (obj is KeyEventArgs args && args.Key == Key.Escape)
                         MainModel.DeleteMarks();
                 });
             }

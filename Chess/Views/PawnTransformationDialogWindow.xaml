@@ -58,7 +58,7 @@
                     <i:EventTrigger EventName="MouseDown">
                         <i:InvokeCommandAction 
                             Command="{Binding CloseWindow}"
-                            CommandParameter="{Binding ElementName=queenLabel, Path=Content}"/>
+                            CommandParameter="{Binding ElementName=rookLabel, Path=Content}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </Label>
@@ -76,7 +76,7 @@
                     <i:EventTrigger EventName="MouseDown">
                         <i:InvokeCommandAction 
                             Command="{Binding CloseWindow}"
-                            CommandParameter="{Binding ElementName=queenLabel, Path=Content}"/>
+                            CommandParameter="{Binding ElementName=knightLabel, Path=Content}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </Label>
@@ -94,7 +94,7 @@
                     <i:EventTrigger EventName="MouseDown">
                         <i:InvokeCommandAction 
                             Command="{Binding CloseWindow}"
-                            CommandParameter="{Binding ElementName=queenLabel, Path=Content}"/>
+                            CommandParameter="{Binding ElementName=bishopLabel, Path=Content}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </Label>

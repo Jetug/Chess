@@ -19,4 +19,7 @@
     <Color x:Key="MainWindowColor">#FF2B2B2B</Color>
     <SolidColorBrush x:Key="MainWindowBrush" Color="{StaticResource MainWindowColor}"/>
 
+    <Color x:Key="ForegroundColor">#FF000000</Color>
+    <SolidColorBrush x:Key="ForegroundBrush" Color="{StaticResource ForegroundColor}"/>
+
 </ResourceDictionary>

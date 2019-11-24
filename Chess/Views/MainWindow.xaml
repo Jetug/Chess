@@ -6,11 +6,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:Chess"
     xmlns:vm="clr-namespace:Chess.ViewModels"
-    xmlns:i1="http://www.galasoft.ch/mvvmlight"
+    xmlns:j="http://www.galasoft.ch/mvvmlight"
     x:Class="Chess.MainWindow"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Игра Шахматы с человеком" Height="650" Width="750" 
+        Title="{DynamicResource MainWindowTitle}" Height="650" Width="750" 
         MinWidth="750" MinHeight="650"
         Background="{DynamicResource MainWindowBrush}">
     <Window.DataContext>
@@ -18,7 +18,7 @@
     </Window.DataContext>
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="KeyDown">
-            <i1:EventToCommand  
+            <j:EventToCommand  
                 Command="{Binding EscapeDown}" 
                 PassEventArgsToCommand="True" />
         </i:EventTrigger>
@@ -35,22 +35,27 @@
         </Grid.ColumnDefinitions>
 
         <Button 
-            x:Name="StartButton"
-            Content="Новая игра" 
+            x:Name="StartButton" 
             HorizontalAlignment="Left" 
             Margin="18,262,0,0" 
             CommandParameter=""
             VerticalAlignment="Top" 
-            Width="79" Height="61" 
-            Background="{DynamicResource ButtonBrush}"
+            Width="80" Height="60"
             Grid.ColumnSpan="2"
             Command="{Binding Start}" FontWeight="Bold" 
-            Foreground="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
-            BorderBrush="{DynamicResource FieldBorderBrush}">
+            Foreground="{DynamicResource ForegroundBrush}" 
+            BorderBrush="{DynamicResource FieldBorderBrush}" Background="{DynamicResource ButtonBrush}">
+            <TextBlock Text="{DynamicResource StartButton}">
+                <TextBlock.Effect>
+                    <DropShadowEffect 
+                        Color="Gray" Direction="310"
+                        ShadowDepth="2" Opacity="0.6"/>
+                </TextBlock.Effect>
+            </TextBlock>
             <!--<Button.Effect>
                 <DropShadowEffect 
                     Color="Black" Direction="310"
-                    ShadowDepth="8" Opacity="0.4"/>
+                    ShadowDepth="2" Opacity="0.4"/>
             </Button.Effect>-->
         </Button>
         <ContentPresenter
@@ -61,7 +66,7 @@
             VerticalAlignment="Top"
             Margin="10.333,0,0,0"
             Grid.Column="2" 
-            OpacityMask="#FFCDCDCD"/>
+            OpacityMask="Black"/>
         <DataGrid Visibility="Hidden"
                   Grid.ColumnSpan="2" 
                   HorizontalAlignment="Left" 
@@ -76,15 +81,15 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <!--Content="  Перевернуть &#xD;&#xA;чёрные фигуры"-->
         <Button
             Content="{DynamicResource FlipIcon}"
             Name="flipButton"
+            Visibility="{Binding Visibility}"
             Grid.ColumnSpan="2"
             HorizontalAlignment="Left"
             Margin="28,343,0,0" 
             VerticalAlignment="Top"
-            Width="56" Height="53" 
+            Width="60" Height="60" 
             Background="{DynamicResource ButtonBrush}"
             Foreground="#FF9CABAB"
             BorderBrush="{DynamicResource FieldBorderBrush}" 

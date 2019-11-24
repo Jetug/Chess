@@ -26,7 +26,6 @@ C:\Projects\C#\Chess\Chess\obj\Release\GeneratedInternalTypeHelper.g.cs
 C:\Projects\C#\Chess\Chess\obj\Release\Chess_MarkupCompile.cache
 C:\Projects\C#\Chess\Chess\obj\Release\Chess_MarkupCompile.lref
 C:\Projects\C#\Chess\Chess\obj\Release\App.baml
-C:\Projects\C#\Chess\Chess\obj\Release\Styles\Backgrounds.baml
 C:\Projects\C#\Chess\Chess\obj\Release\Styles\Colors.baml
 C:\Projects\C#\Chess\Chess\obj\Release\Views\CField.baml
 C:\Projects\C#\Chess\Chess\obj\Release\Views\ChessField.baml
@@ -42,3 +41,5 @@ C:\Projects\C#\Chess\Chess\obj\Release\Chess.csproj.CoreCompileInputs.cache
 C:\Projects\C#\Chess\Chess\obj\Release\Chess.csproj.CopyComplete
 C:\Projects\C#\Chess\Chess\obj\Release\Chess.exe
 C:\Projects\C#\Chess\Chess\obj\Release\Chess.pdb
+C:\Projects\C#\Chess\Chess\obj\Release\Styles\Texts.baml
+C:\Projects\C#\Chess\Chess\obj\Release\Views\MateWindow.g.cs

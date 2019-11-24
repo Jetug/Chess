@@ -1,11 +1,4 @@
-﻿C:\Projects\C#\Chess\Chess\obj\Release\GeneratedInternalTypeHelper.g.i.cs
-FC:\Projects\C#\Chess\Chess\App.xaml;;
-FC:\Projects\C#\Chess\Chess\Styles\Backgrounds.xaml;;
-FC:\Projects\C#\Chess\Chess\Styles\Colors.xaml;;
-FC:\Projects\C#\Chess\Chess\Views\CField.xaml;;
-FC:\Projects\C#\Chess\Chess\Views\ChessField.xaml;;
-FC:\Projects\C#\Chess\Chess\Views\GridField.xaml;;
-FC:\Projects\C#\Chess\Chess\Views\LabelBorder.xaml;;
-FC:\Projects\C#\Chess\Chess\Views\MainWindow.xaml;;
-FC:\Projects\C#\Chess\Chess\Views\PawnTransformationDialogWindow.xaml;;
+﻿
+
+FC:\Projects\C#\Chess\Chess\Views\MateWindow.xaml;;
 
