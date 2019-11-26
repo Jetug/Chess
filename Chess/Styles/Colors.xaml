@@ -14,7 +14,7 @@
     <Color x:Key="ButtonColor">#FF3232A6</Color>
     <SolidColorBrush x:Key="ButtonBrush" Color="{StaticResource ButtonColor}"/>
 
-    <Image x:Key="FlipIcon" Source="pack://application:,,,/Styles/flopp.png"/>
+    <Image x:Key="FlipIcon" Source="pack://application:,,,/Styles/FlipIcon.png"/>
 
     <Color x:Key="MainWindowColor">#FF2B2B2B</Color>
     <SolidColorBrush x:Key="MainWindowBrush" Color="{StaticResource MainWindowColor}"/>

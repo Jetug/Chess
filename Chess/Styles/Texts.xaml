@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:Chess.Styles"
                     xmlns:v="clr-namespace:System;assembly=mscorlib">
     <v:String x:Key="MainWindowTitle">Игра Шахматы с человеком</v:String>
     <v:String x:Key="StartButton">Новая игра</v:String>
+    <v:String x:Key="Mate">Мат</v:String>
 </ResourceDictionary>

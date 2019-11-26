@@ -5,8 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:vm="clr-namespace:Chess.ViewModels"
-        xmlns:local="clr-namespace:Chess.Views"
-        
         mc:Ignorable="d"
         Title="Выберите фигуру" 
         Height="300" Width="300"
@@ -100,10 +98,10 @@
             </Label>
         </Grid>
         <Label Content="Выберите фигуру"
-                   HorizontalAlignment="Left" 
-                   Margin="50,10,0,0"
-                   VerticalAlignment="Top" 
-                   Width="200" FontSize="16"
-                   HorizontalContentAlignment="Center" FontWeight="Bold"/>
+               HorizontalAlignment="Left" 
+               Margin="50,10,0,0"
+               VerticalAlignment="Top" 
+               Width="200" FontSize="16"
+               HorizontalContentAlignment="Center" FontWeight="Bold"/>
     </Grid>
 </Window>

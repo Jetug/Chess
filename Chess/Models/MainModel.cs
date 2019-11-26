@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -12,12 +8,18 @@ namespace Chess.Models
 {
     static class MainModel
     {
-        public static List<Figure> Figures { get; set; } = new List<Figure>();
-        public static List<FigureLabel> figureLabels = new List<FigureLabel>();
-        public static List<Label> possibleTurn_Labels = new List<Label>();
+        private static List<Figure> figures = new List<Figure>();
+        private static List<FigureLabel> figureLabels = new List<FigureLabel>();
+        private static List<Label> possibleTurn_Labels = new List<Label>();
 
-        public static Views.ChessField field = new Views.ChessField();
+        /// <summary>
+        /// Возвращает игровое поле.
+        /// </summary>
+        public static Views.ChessField Field { get; private set; } = new Views.ChessField();
         
+        /// <summary>
+        /// Возвращает значение true если ход белых, значение false если ход чёрных.
+        /// </summary>
         public static bool IsWhiteTurn { get; private set; } = true;
 
         private static FigureLabel bufLabel = null;
@@ -27,38 +29,39 @@ namespace Chess.Models
         /// </summary>
         public static void Start()
         {
+            figures.Clear();
             figureLabels.Clear();
             IsWhiteTurn = true;
-            field = new Views.ChessField();
+            Field = new Views.ChessField();
 
             for (int i = 0; i < 8; i++)
             {
-                Figures.Add(new Pawn(new Cell(i, 1), false) { SetPawnTransformation = TransformPawn });
-                Figures.Add(new Pawn(new Cell(i, 6), true) { SetPawnTransformation = TransformPawn });
+                figures.Add(new Pawn(new Cell(i, 1), false) { SetPawnTransformation = TransformPawn });
+                figures.Add(new Pawn(new Cell(i, 6), true) { SetPawnTransformation = TransformPawn });
             }
 
-            Figures.Add(new Rook(new Cell(0, 0), false));
-            Figures.Add(new Rook(new Cell(7, 0), false));
-            Figures.Add(new Rook(new Cell(0, 7), true));
-            Figures.Add(new Rook(new Cell(7, 7), true));
+            figures.Add(new Rook(new Cell(0, 0), false));
+            figures.Add(new Rook(new Cell(7, 0), false));
+            figures.Add(new Rook(new Cell(0, 7), true));
+            figures.Add(new Rook(new Cell(7, 7), true));
 
-            Figures.Add(new Knight(new Cell(1, 0), false));
-            Figures.Add(new Knight(new Cell(6, 0), false));
-            Figures.Add(new Knight(new Cell(1, 7), true));
-            Figures.Add(new Knight(new Cell(6, 7), true));
+            figures.Add(new Knight(new Cell(1, 0), false));
+            figures.Add(new Knight(new Cell(6, 0), false));
+            figures.Add(new Knight(new Cell(1, 7), true));
+            figures.Add(new Knight(new Cell(6, 7), true));
 
-            Figures.Add(new Bishop(new Cell(2, 0), false));
-            Figures.Add(new Bishop(new Cell(5, 0), false));
-            Figures.Add(new Bishop(new Cell(2, 7), true));
-            Figures.Add(new Bishop(new Cell(5, 7), true));
+            figures.Add(new Bishop(new Cell(2, 0), false));
+            figures.Add(new Bishop(new Cell(5, 0), false));
+            figures.Add(new Bishop(new Cell(2, 7), true));
+            figures.Add(new Bishop(new Cell(5, 7), true));
 
-            Figures.Add(new Queen(new Cell(3, 0), false));
-            Figures.Add(new Queen(new Cell(3, 7), true));
+            figures.Add(new Queen(new Cell(3, 0), false));
+            figures.Add(new Queen(new Cell(3, 7), true));
 
-            Figures.Add(new King(new Cell(4, 0), false));
-            Figures.Add(new King(new Cell(4, 7), true));
+            figures.Add(new King(new Cell(4, 0), false));
+            figures.Add(new King(new Cell(4, 7), true));
 
-            foreach (var f in Figures)
+            foreach (var f in figures)
             {
                 CreateFigure(f);
             }
@@ -70,21 +73,14 @@ namespace Chess.Models
         /// <param name="figure">Фигура которую нужно создать.</param>
         private static void CreateFigure(Figure figure)
         {
-            FigureLabel figureLabel = new FigureLabel(figure);
-
-
-            figureLabel.Effect = new DropShadowEffect
+            FigureLabel figureLabel = new FigureLabel(figure)
             {
-                Color = new Color { A = 0, R = 150, G = 150, B = 150, },
-                ShadowDepth = 2
+                Effect = new DropShadowEffect
+                {
+                    Color = new Color { A = 0, R = 150, G = 150, B = 150, },
+                    ShadowDepth = 2
+                }
             };
-            #region Flip
-            //if (!figure.IsWhite)
-            //{
-            //    figureLabel.RenderTransformOrigin = new Point(0.5, 0.5);
-            //    figureLabel.RenderTransform = new RotateTransform(180);
-            //}
-            #endregion
             figureLabel.MouseDown += CreateMarks;
 
             BrushConverter converter = new BrushConverter();
@@ -92,7 +88,7 @@ namespace Chess.Models
                 figureLabel.Foreground = (Brush)converter.ConvertFromString("#FFFFFFFF");
 
 
-            field.mainGrid.Children.Add(figureLabel);
+            Field.mainGrid.Children.Add(figureLabel);
             figureLabels.Add(figureLabel);
         }
 
@@ -102,9 +98,9 @@ namespace Chess.Models
         /// <param name="figureLabel"></param>
         private static void RemoveFigure(FigureLabel figureLabel)
         {
-            field.mainGrid.Children.Remove(figureLabel);
+            Field.mainGrid.Children.Remove(figureLabel);
             figureLabels.Remove(figureLabel);
-            Figures.Remove(figureLabel.Figure);
+            figures.Remove(figureLabel.Figure);
         }
 
         /// <summary>
@@ -119,8 +115,7 @@ namespace Chess.Models
 
             if (label.Figure.IsWhite == IsWhiteTurn)
             {
-                List<Cell> cells = label.Figure.GetPossibleTurns(Figures);
-                //Test = cells;
+                List<Cell> cells = label.Figure.GetPossibleTurns(figures);
                 foreach (Cell c in cells)
                 {
                     BrushConverter converter = new BrushConverter();
@@ -145,14 +140,13 @@ namespace Chess.Models
                                 if (fLabel.Figure is Rook && fLabel.Figure == c.RookForCastling)
                                 {
                                     fLabel.Cell = ((Rook)fLabel.Figure).CastlingCell;
-                                    //Test = figures;
                                 }
                             }
                         };
                     }
 
                     bufLabel = label;
-                    field.mainGrid.Children.Add(possibleTurn_Label);
+                    Field.mainGrid.Children.Add(possibleTurn_Label);
                     possibleTurn_Labels.Add(possibleTurn_Label);
                 }
             }
@@ -165,11 +159,12 @@ namespace Chess.Models
         {
             foreach (Label l in possibleTurn_Labels)
             {
-                field.mainGrid.Children.Remove(l);
+                Field.mainGrid.Children.Remove(l);
             }
         }
 
-        private static bool m = true;
+        public static int angle;
+
         /// <summary>
         /// Переворачивает чёрные фигуры на 180 градусов.
         /// </summary>
@@ -180,13 +175,11 @@ namespace Chess.Models
                 if (!figureLabel.Figure.IsWhite)
                 {
                     figureLabel.RenderTransformOrigin = new Point(0.5, 0.5);
-                    if (m)
-                        figureLabel.RenderTransform = new RotateTransform(180);
-                    else
-                        figureLabel.RenderTransform = new RotateTransform(0);
+                    figureLabel.RenderTransform = new RotateTransform(angle);
                 }
             }
-            m = !m;
+            if (angle == 0) angle = 180;
+            else angle = 0;
         }
 
         /// <summary>
@@ -201,11 +194,10 @@ namespace Chess.Models
                 {
                     if ((mark.Margin.Left / 70 == figureLabel.Figure.Cell.PosX) && (mark.Margin.Top / 70 == figureLabel.Figure.Cell.PosY))
                     {
-                        RemoveFigure(figureLabel);
                         if (figureLabel.Figure is King)
                         {
                             new Views.MateWindow().ShowDialog();
-                            foreach (var control in field.mainGrid.Children)
+                            foreach (var control in Field.mainGrid.Children)
                             {
                                 if (control is FigureLabel)
                                 {
@@ -213,6 +205,7 @@ namespace Chess.Models
                                 }
                             }
                         }
+                        RemoveFigure(figureLabel);
                         break;
                     };
                 }
@@ -222,11 +215,7 @@ namespace Chess.Models
             }
             DeleteMarks();
             bufLabel = null;
-            //Test = figures;
-            //Test = new List<Cell>();
         }
-
-        public static Figure PawnTransformFigure{ get => DialogWindowModel.PawnTransformFigure; }
 
         /// <summary>
         /// Создёт диалоговое окно с выбором фигуры в которую нужно превратить пешку.
@@ -235,12 +224,13 @@ namespace Chess.Models
         public static void TransformPawn(Pawn pawn)
         {
             new Views.PawnTransformationDialogWindow().ShowDialog();
+            Figure PawnTransformFigure = DialogWindowModel.PawnTransformFigure;
             PawnTransformFigure.Cell = pawn.Cell;
             PawnTransformFigure.IsWhite = pawn.IsWhite;
 
             RemoveFigure(bufLabel);
 
-            Figures.Add(PawnTransformFigure);
+            figures.Add(PawnTransformFigure);
             CreateFigure(PawnTransformFigure);
         }
     }

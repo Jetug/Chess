@@ -1,17 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Chess.Models
+﻿namespace Chess.Models
 {
     /// <summary>
     /// Представляет информацию о положении фигуры на поле.
     /// </summary>
     public class Cell
     {
+        /// <summary>
+        /// Позиция по горизонтали.
+        /// </summary>
         public int PosX { get; set; }
+        /// <summary>
+        /// Позиция по вертикали.
+        /// </summary>
         public int PosY { get; set; }
 
         /// <summary>
@@ -25,17 +25,28 @@ namespace Chess.Models
             this.PosY = posY;
         }
 
+        /// <summary>
+        /// Возвращает true если объект типа Cell имеет значение null, в противном случае возвращает false.
+        /// </summary>>
+        /// <param name="value">Объект который надо проверить.</param>
+        /// <returns></returns
         public static bool IsNull(Cell value)
         {
             return value == null ? true : false;
         }
 
+
+        /// <summary>
+        /// Проверяет совпадают ли позиции двух клеток.
+        /// </summary>
+        /// <param name="cellA">Первая сравниваемая клетка.</param>
+        /// <param name="cellB">Вторая сравниваемая клетка.</param>
+        /// <returns>
+        /// Значение true, если позиции двух клеток равны, в противном случае — значение false.
+        /// </returns>
         public static bool IsEqual(Cell cellA, Cell cellB)
         {
-            if (cellA.PosX == cellB.PosX && cellA.PosY == cellB.PosY)
-                return true;
-            else
-                return false;
+            return cellA.PosX == cellB.PosX && cellA.PosY == cellB.PosY;
         }
 
         public bool IsCastling { get; set; } = false;

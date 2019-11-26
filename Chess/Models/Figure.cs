@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
-using Chess.Models;
+﻿using System.Collections.Generic;
 
 namespace Chess.Models
 {
@@ -17,7 +10,7 @@ namespace Chess.Models
         /// <summary>
         /// Взвращает или задаёт цвет фигуры. Значение true - белый цвет, значение false - чёрный.
         /// </summary>
-        public bool IsWhite { get; /*private*/ set; }
+        public bool IsWhite { get; set; }
         protected Cell cell;
         /// <summary>
         /// Возвращает или задаёт позицию фигуры на поле.
@@ -277,6 +270,9 @@ namespace Chess.Models
         /// Взвращает или задаёт позицию ферзя на поле.
         /// </summary>
         public override Cell Cell { get => cell; set => cell = value; }
+        /// <summary>
+        /// Инициализирует новый экземпляр класса Queen и задаёт начальную поцицию и цвет фигуры.
+        /// </summary>
         public Queen(Cell cell, bool isWhite) : base(cell, isWhite){}
 
         /// <summary>

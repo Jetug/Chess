@@ -82,8 +82,6 @@
     <Compile Include="Models\MainModel.cs" />
     <Compile Include="ViewModels\DialogWindowViewModel.cs" />
     <Compile Include="ViewModels\MateWindowViewModel.cs" />
-    <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\ChessField.xaml.cs">
       <DependentUpon>ChessField.xaml</DependentUpon>
     </Compile>
@@ -92,12 +90,6 @@
     </Compile>
     <Compile Include="Views\PawnTransformationDialogWindow.xaml.cs">
       <DependentUpon>PawnTransformationDialogWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\RectField.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\RectField.Designer.cs">
-      <DependentUpon>RectField.cs</DependentUpon>
     </Compile>
     <Page Include="Styles\Colors.xaml">
       <SubType>Designer</SubType>
@@ -153,9 +145,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\RectField.resx">
-      <DependentUpon>RectField.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -166,7 +155,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Styles\Flopp.png" />
+    <Resource Include="Styles\FlipIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

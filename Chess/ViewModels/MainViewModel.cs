@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
@@ -17,20 +16,10 @@ namespace Chess.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
-        //public List<int> vs { get; set; } = new List<int>();
-
-        //private List<Figure> test;
-        //public List<Figure> Test
-        //{
-        //    get { return test; }
-        //    set
-        //    {
-        //        test = value;
-        //        OnProperteyChanged();
-        //    }
-        //}
-
-        private Control content = MainModel.field;
+        private Control content = MainModel.Field;
+        /// <summary>
+        /// Возвращает или задаёт содержимое главного окна.
+        /// </summary>
         public Control Content
         {
             get { return content; }
@@ -42,6 +31,9 @@ namespace Chess.ViewModels
         }
 
         private Visibility visibility = Visibility.Hidden;
+        /// <summary>
+        /// Возвращает или задаёт видимость контрола.
+        /// </summary>
         public Visibility Visibility
         {
             get { return visibility; }
@@ -52,9 +44,6 @@ namespace Chess.ViewModels
             }
         }
 
-        //public string FlipIconPath { get => AppDomain.CurrentDomain.BaseDirectory + "Flopp.png"; }
-
-        #region Commands
         /// <summary>
         /// Обновляет игровое поле и расставляет фигуры на начальные позиции.
         /// </summary>
@@ -65,9 +54,8 @@ namespace Chess.ViewModels
                 return new DelegateCommand((obj) =>
                 {
                     Content = null;
-                    MainModel.Figures.Clear();
                     MainModel.Start();
-                    Content = MainModel.field;
+                    Content = MainModel.Field;
                     Visibility = Visibility.Visible;
                 });
             }
@@ -101,6 +89,5 @@ namespace Chess.ViewModels
                 });
             }
         }
-        #endregion
     }
 }

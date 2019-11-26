@@ -32,7 +32,6 @@ C:\Projects\C#\Chess\Chess\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
 C:\Projects\C#\Chess\Chess\bin\Debug\GalaSoft.MvvmLight.Platform.xml
 C:\Projects\C#\Chess\Chess\obj\Debug\Views\ChessField.g.cs
 C:\Projects\C#\Chess\Chess\obj\Debug\Views\ChessField.baml
-C:\Projects\C#\Chess\Chess\obj\Debug\Chess.Views.RectField.resources
 C:\Projects\C#\Chess\Chess\obj\Debug\Views\PawnTransformationDialogWindow.g.cs
 C:\Projects\C#\Chess\Chess\obj\Debug\Views\PawnTransformationDialogWindow.baml
 C:\Projects\C#\Chess\Chess\obj\Debug\Views\MateWindow.g.cs
