@@ -37,3 +37,4 @@ C:\Projects\C#\Chess\Chess\obj\Debug\Views\PawnTransformationDialogWindow.baml
 C:\Projects\C#\Chess\Chess\obj\Debug\Views\MateWindow.g.cs
 C:\Projects\C#\Chess\Chess\obj\Debug\Styles\Texts.baml
 C:\Projects\C#\Chess\Chess\obj\Debug\Views\MateWindow.baml
+C:\Projects\C#\Chess\Chess\obj\Debug\Styles\ButtonStyles.baml

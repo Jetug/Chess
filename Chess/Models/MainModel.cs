@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -24,15 +25,23 @@ namespace Chess.Models
 
         private static FigureLabel bufLabel = null;
 
+        public static event Action Update;
+        public static Action SetUpdate { set { Update += value; } }
+
         /// <summary>
         /// Расставляет фигуры на начальные позиции.
         /// </summary>
         public static void Start()
         {
+            Field = null;
+            Field = new Views.ChessField();
+
             figures.Clear();
             figureLabels.Clear();
             IsWhiteTurn = true;
             Field = new Views.ChessField();
+
+            Update?.Invoke();
 
             for (int i = 0; i < 8; i++)
             {
@@ -163,6 +172,44 @@ namespace Chess.Models
             }
         }
 
+        /// <summary>
+        /// Перемещает фигуру на выбранную клетку.
+        /// </summary>
+        private static void MoveFigure(object sender, RoutedEventArgs e)
+        {
+            Label mark = (Label)sender;
+            if (bufLabel != null)
+            {
+                foreach (FigureLabel figureLabel in figureLabels)
+                {
+                    if ((mark.Margin.Left / 70 == figureLabel.Figure.Cell.PosX) && (mark.Margin.Top / 70 == figureLabel.Figure.Cell.PosY))
+                    {
+                        if (figureLabel.Figure is King)
+                        {
+                            foreach (var control in Field.mainGrid.Children)
+                            {
+                                if (control is FigureLabel)
+                                {
+                                    ((FigureLabel)control).MouseDown -= CreateMarks;
+                                }
+                            }
+
+                            new Views.MateWindow().ShowDialog();
+                            DeleteMarks();
+                            return;
+                        }
+                        RemoveFigure(figureLabel);
+                        break;
+                    };
+                }
+                bufLabel.Margin = mark.Margin;
+                bufLabel.Figure.Cell = new Cell((int)mark.Margin.Left / 70, (int)mark.Margin.Top / 70);
+                IsWhiteTurn = !bufLabel.Figure.IsWhite;
+            }
+            DeleteMarks();
+            bufLabel = null;
+        }
+
         public static int angle;
 
         /// <summary>
@@ -180,41 +227,6 @@ namespace Chess.Models
             }
             if (angle == 0) angle = 180;
             else angle = 0;
-        }
-
-        /// <summary>
-        /// Перемещает фигуру на выбранную клетку.
-        /// </summary>
-        private static void MoveFigure(object sender, RoutedEventArgs e)
-        {
-            Label mark = (Label)sender;
-            if (bufLabel != null)
-            {
-                foreach (FigureLabel figureLabel in figureLabels)
-                {
-                    if ((mark.Margin.Left / 70 == figureLabel.Figure.Cell.PosX) && (mark.Margin.Top / 70 == figureLabel.Figure.Cell.PosY))
-                    {
-                        if (figureLabel.Figure is King)
-                        {
-                            new Views.MateWindow().ShowDialog();
-                            foreach (var control in Field.mainGrid.Children)
-                            {
-                                if (control is FigureLabel)
-                                {
-                                    ((FigureLabel)control).MouseDown -= CreateMarks;
-                                }
-                            }
-                        }
-                        RemoveFigure(figureLabel);
-                        break;
-                    };
-                }
-                bufLabel.Margin = mark.Margin;
-                bufLabel.Figure.Cell = new Cell((int)mark.Margin.Left / 70, (int)mark.Margin.Top / 70);
-                IsWhiteTurn = !bufLabel.Figure.IsWhite;
-            }
-            DeleteMarks();
-            bufLabel = null;
         }
 
         /// <summary>

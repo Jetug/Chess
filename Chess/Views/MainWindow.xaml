@@ -15,6 +15,7 @@
     <Window.DataContext>
         <vm:MainViewModel/>
     </Window.DataContext>
+
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="KeyDown">
             <j:EventToCommand  
@@ -36,15 +37,12 @@
         <Button 
             x:Name="StartButton" 
             HorizontalAlignment="Left" 
-            Margin="18,262,0,0" 
-            CommandParameter=""
+            Margin="18,262,0,0"
             VerticalAlignment="Top" 
             Width="80" Height="60"
             Grid.ColumnSpan="2"
-            Command="{Binding Start}" FontWeight="Bold" 
-            Foreground="{DynamicResource ForegroundBrush}" 
-            BorderBrush="{DynamicResource FieldBorderBrush}"
-            Background="{DynamicResource ButtonBrush}">
+            Command="{Binding Start}" FontWeight="Bold"
+            Style="{DynamicResource MainButtonStyle}">
             <TextBlock Text="{DynamicResource StartButton}">
                 <TextBlock.Effect>
                     <DropShadowEffect 
@@ -62,20 +60,6 @@
             Margin="10.333,0,0,0"
             Grid.Column="2" 
             OpacityMask="Black"/>
-        <DataGrid Visibility="Hidden"
-                  Grid.ColumnSpan="2" 
-                  HorizontalAlignment="Left" 
-                  Height="255" Width="108"
-                  VerticalAlignment="Top"
-                  ItemsSource="{Binding Test}" Margin="6,0,0,0">
-
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Фигура" Binding="{Binding Path=Icon}" Width="30" />
-                <DataGridTextColumn Header="X" Binding="{Binding Path=Cell.PosX}" Width="20" />
-                <DataGridTextColumn Header="Y" Binding="{Binding Path=Cell.PosY}" Width="20" />
-            </DataGrid.Columns>
-
-        </DataGrid>
         <Button
             Content="{DynamicResource FlipIcon}"
             Name="flipButton"
@@ -90,7 +74,9 @@
             BorderBrush="{DynamicResource FieldBorderBrush}" 
             FontWeight="Bold"
             HorizontalContentAlignment="Center"
-            Command="{Binding Flip}">
+            Command="{Binding Flip}"
+            Style="{DynamicResource MainButtonStyle}">
+
         </Button>
     </Grid>
 </Window>

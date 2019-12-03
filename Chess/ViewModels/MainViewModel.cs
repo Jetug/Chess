@@ -16,13 +16,18 @@ namespace Chess.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
-        private Control content = MainModel.Field;
+        public MainViewModel()
+        {
+            MainModel.SetUpdate = () => OnProperteyChanged("Content");
+        }
+
+        private Control content;
         /// <summary>
-        /// Возвращает или задаёт содержимое главного окна.
+        /// Возвращает содержимое главного окна.
         /// </summary>
         public Control Content
         {
-            get { return content; }
+            get => MainModel.Field;
             set
             {
                 content = value;
@@ -53,9 +58,8 @@ namespace Chess.ViewModels
             {
                 return new DelegateCommand((obj) =>
                 {
-                    Content = null;
                     MainModel.Start();
-                    Content = MainModel.Field;
+                    //Content = MainModel.Field;
                     Visibility = Visibility.Visible;
                 });
             }
