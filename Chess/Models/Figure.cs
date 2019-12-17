@@ -116,69 +116,6 @@ namespace Chess.Models
                 }
             }
             return null;
-
-            #region ff
-            ////bool canDoCastling = true;
-
-            //bool isClear = true;
-            //foreach (var figure in figures)
-            //{
-            //    #region A
-            //    //if (x == 2)
-            //    //{
-            //    //    if (((figure.Cell.PosX != 1 && figure.Cell.PosX != 2 && figure.Cell.PosX != 3) && figure.Cell.PosY == y) && (figure is Rook && figure.IsWhite == this.IsWhite && figure.Cell.PosX != 7 && !((Rook)figure).FirstMove))
-            //    //        canDoCastling = true;
-            //    //}
-            //    //else
-            //    //{
-            //    //    if (((figure.Cell.PosX == 6 || figure.Cell.PosX == 5) && figure.Cell.PosY == y)
-            //    //        || (figure is Rook && figure.IsWhite == this.IsWhite && figure.Cell.PosX != 0 && !((Rook)figure).FirstMove))
-            //    //        canDoCastling = false;
-            //    //}
-            //    #endregion
-            //    #region B
-            //    //if (x == 2)
-            //    //{
-            //    //    if (((figure.Cell.PosX == 1 || figure.Cell.PosX == 2 || figure.Cell.PosX == 3) && figure.Cell.PosY == y)     )
-            //    //        //|| (figure is Rook && figure.IsWhite == this.IsWhite && figure.Cell.PosX != 7 && !((Rook)figure).FirstMove))
-            //    //        isClear = false;
-            //    //}
-            //    //else
-            //    //{
-            //    //    if (((figure.Cell.PosX == 6 || figure.Cell.PosX == 5) && figure.Cell.PosY == y)     )
-            //    //        //|| (figure is Rook && figure.IsWhite == this.IsWhite && figure.Cell.PosX != 0 && !((Rook)figure).FirstMove))
-            //    //        isClear = false;
-            //    //}
-            //    #endregion
-            //}
-            //bool canDoCastling = false;
-            //if (isClear)
-            //{
-            //    foreach (var fig in figures)
-            //    {
-            //        if (x == 2)
-            //        {
-            //            if (fig is Rook && fig.IsWhite == this.IsWhite && fig.Cell.PosX == 0 && !((Rook)fig).FirstMove)
-            //            {
-            //                canDoCastling = true;
-            //                break;
-            //            }
-            //        }
-            //        else
-            //        {
-            //            if (fig is Rook && fig.IsWhite == this.IsWhite && fig.Cell.PosX == 7 && !((Rook)fig).FirstMove)
-            //            {
-            //                canDoCastling = true;
-            //                break;
-            //            }
-            //        }
-            //    }
-            //}
-            //if (canDoCastling)
-            //    return new Cell(x, y);
-            //else
-            //    return null;
-            #endregion
         }
 
         private Cell GetTurn(int x, int y, List<Figure> figures)
@@ -188,36 +125,8 @@ namespace Chess.Models
             {
                 foreach (var figure in figures)
                 {
-                    //bool stop = false;
-                    ////Thread thread = new Thread(
-                    //Task.Factory.StartNew(
-                    //() => 
-                    //{
-                    //    if(figure.IsWhite != IsWhite)
-                    //    {
-                    //        foreach (Cell cell in figure.GetPossibleTurns(figures))
-                    //        {
-                    //            //if(true)
-                    //            if (cell.PosX == x && cell.PosY == y)
-                    //            {
-                    //                MessageBox.Show("!!!");
-                    //                canMove = false;
-                    //                stop = true;
-                    //                break;
-                    //            }
-                    //        }
-                    //    }
-                    //});
 
-                    //if (stop)
-                    //{
-                    //    MessageBox.Show("!!!");
-                    //    return null;
-                    //}
-
-                    //Check(figure, figures);
-
-                    if ( (x == figure.Cell.PosX && y == figure.Cell.PosY) /*|| figure.GetPossibleTurns(figures).Contains(new Cell(x, y))*/  )
+                    if ( (x == figure.Cell.PosX && y == figure.Cell.PosY) )
                     {
                         canMove = false;
                         if (IsWhite != figure.IsWhite)

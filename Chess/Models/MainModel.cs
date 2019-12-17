@@ -13,6 +13,8 @@ namespace Chess.Models
         private static List<FigureLabel> figureLabels = new List<FigureLabel>();
         private static List<Label> possibleTurn_Labels = new List<Label>();
 
+        const int cellSize = 70;
+
         /// <summary>
         /// Возвращает игровое поле.
         /// </summary>
@@ -40,6 +42,8 @@ namespace Chess.Models
             figureLabels.Clear();
             IsWhiteTurn = true;
             Field = new Views.ChessField();
+
+            angle = 180;
 
             Update?.Invoke();
 
@@ -132,9 +136,9 @@ namespace Chess.Models
                     {
                         HorizontalAlignment = HorizontalAlignment.Left,
                         VerticalAlignment = VerticalAlignment.Top,
-                        Margin = new Thickness(c.PosX * 70, c.PosY * 70, 0, 0),
-                        Height = 70,
-                        Width = 70,
+                        Margin = new Thickness(c.PosX * cellSize, c.PosY * cellSize, 0, 0),
+                        Height = cellSize,
+                        Width = cellSize,
                         Background = (Brush)converter.ConvertFromString("#FF2A9224"),
                         Opacity = 0.5,
                         BorderThickness = new Thickness(1)
@@ -182,7 +186,7 @@ namespace Chess.Models
             {
                 foreach (FigureLabel figureLabel in figureLabels)
                 {
-                    if ((mark.Margin.Left / 70 == figureLabel.Figure.Cell.PosX) && (mark.Margin.Top / 70 == figureLabel.Figure.Cell.PosY))
+                    if ((mark.Margin.Left / cellSize == figureLabel.Figure.Cell.PosX) && (mark.Margin.Top / cellSize == figureLabel.Figure.Cell.PosY))
                     {
                         if (figureLabel.Figure is King)
                         {
@@ -203,14 +207,14 @@ namespace Chess.Models
                     };
                 }
                 bufLabel.Margin = mark.Margin;
-                bufLabel.Figure.Cell = new Cell((int)mark.Margin.Left / 70, (int)mark.Margin.Top / 70);
+                bufLabel.Figure.Cell = new Cell((int)mark.Margin.Left / cellSize, (int)mark.Margin.Top / cellSize);
                 IsWhiteTurn = !bufLabel.Figure.IsWhite;
             }
             DeleteMarks();
             bufLabel = null;
         }
 
-        public static int angle;
+        private static int angle;
 
         /// <summary>
         /// Переворачивает чёрные фигуры на 180 градусов.

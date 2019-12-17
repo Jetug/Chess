@@ -78,7 +78,7 @@
             Command="{Binding StartNewGame}"
             FontWeight="Bold"
             BorderBrush="{DynamicResource FieldBorderBrush}"
-            Content="Новая игра" 
+            Content="{DynamicResource StartButton}" 
             Style="{DynamicResource MateButtonStyle}"/>
         <Button 
             HorizontalAlignment="Left" 
@@ -89,7 +89,7 @@
             FontWeight="Bold" 
             Foreground="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" 
             BorderBrush="{DynamicResource FieldBorderBrush}"
-            Content="Закрыть"
+            Content="{DynamicResource CloseButton}"
             Background="{DynamicResource BlackCellBrush}"
             Style="{DynamicResource MateButtonStyle}"/>
     </Grid>

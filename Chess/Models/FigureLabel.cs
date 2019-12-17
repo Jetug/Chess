@@ -9,6 +9,8 @@ namespace Chess.Models
     /// </summary>
     class FigureLabel : Label
     {
+        const int cellSize = 70;
+
         public Figure figure;
         /// <summary>
         /// Задаёт или возвращает экземпляр класса Figure.
@@ -28,10 +30,10 @@ namespace Chess.Models
         /// </summary>
         public Cell Cell
         {
-            get => new Cell((int)Margin.Left / 70, (int)Margin.Top / 70);
+            get => new Cell((int)Margin.Left / cellSize, (int)Margin.Top / cellSize);
             set
             {
-                Margin = new Thickness(value.PosX * 70, value.PosY * 70, 0, 0);
+                Margin = new Thickness(value.PosX * cellSize, value.PosY * cellSize, 0, 0);
                 Figure.Cell = value;
             }
         }
@@ -43,8 +45,8 @@ namespace Chess.Models
         {
             HorizontalAlignment = HorizontalAlignment.Left;
             VerticalAlignment = VerticalAlignment.Top;
-            Height = 70;
-            Width = 70;
+            Height = cellSize;
+            Width = cellSize;
         }
 
         /// <summary>
@@ -55,9 +57,9 @@ namespace Chess.Models
             Figure = figure;
             HorizontalAlignment = HorizontalAlignment.Left;
             VerticalAlignment = VerticalAlignment.Top;
-            Margin = new Thickness(figure.Cell.PosX * 70, figure.Cell.PosY * 70, 0, 0);
-            Height = 70;
-            Width = 70;
+            Margin = new Thickness(figure.Cell.PosX * cellSize, figure.Cell.PosY * cellSize, 0, 0);
+            Height = cellSize;
+            Width = cellSize;
             HorizontalContentAlignment = HorizontalAlignment.Center;
             VerticalContentAlignment = VerticalAlignment.Center;
             FontFamily = new FontFamily("Segoe UI Symbol");

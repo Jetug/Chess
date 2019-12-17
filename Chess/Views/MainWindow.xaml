@@ -11,10 +11,19 @@
         WindowStartupLocation="CenterScreen"
         Title="{DynamicResource MainWindowTitle}" Height="650" Width="750" 
         MinWidth="750" MinHeight="650"
-        Background="{DynamicResource MainWindowBrush}">
+        Background="{DynamicResource MainWindowBrush}"
+        ResizeMode="NoResize">
     <Window.DataContext>
         <vm:MainViewModel/>
     </Window.DataContext>
+
+    <Window.Resources>
+        <ControlTemplate TargetType="Button" x:Key="btTemplate">
+            <Border CornerRadius="25" BorderBrush="CadetBlue" BorderThickness="2" >
+                <ContentControl Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Hello" />
+            </Border>
+        </ControlTemplate>
+    </Window.Resources>
 
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="KeyDown">
@@ -76,7 +85,9 @@
             HorizontalContentAlignment="Center"
             Command="{Binding Flip}"
             Style="{DynamicResource MainButtonStyle}">
-
+            <Button.ToolTip>
+                Перевернуть чрные фигуры
+            </Button.ToolTip>
         </Button>
     </Grid>
 </Window>

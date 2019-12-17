@@ -3,5 +3,6 @@
                     xmlns:v="clr-namespace:System;assembly=mscorlib">
     <v:String x:Key="MainWindowTitle">Игра Шахматы с человеком</v:String>
     <v:String x:Key="StartButton">Новая игра</v:String>
+    <v:String x:Key="CloseButton">Закрыть</v:String>
     <v:String x:Key="Mate">Мат</v:String>
 </ResourceDictionary>

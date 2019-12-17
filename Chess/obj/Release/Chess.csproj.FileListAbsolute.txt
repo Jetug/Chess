@@ -37,3 +37,4 @@ C:\Projects\C#\Chess\Chess\obj\Release\Chess.pdb
 C:\Projects\C#\Chess\Chess\obj\Release\Styles\Texts.baml
 C:\Projects\C#\Chess\Chess\obj\Release\Views\MateWindow.g.cs
 C:\Projects\C#\Chess\Chess\obj\Release\Views\MateWindow.baml
+C:\Projects\C#\Chess\Chess\obj\Release\Styles\ButtonStyles.baml
